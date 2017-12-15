@@ -1,7 +1,20 @@
 # GBStracini.SDKBuilder
-A SDK framework that helps create a C# SDK project for consuming API
 
-Este pacote NuGet serve para facilitar a criação de SDK (Software Development Kit) de plataforma que possuem API baseadas em WebAPI2.
+[![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-sdkbuilder)
+[![GuiStracini.SDKBuilder NuGet Version](https://img.shields.io/nuget/v/GuiStracini.SDKBuilder.svg)](https://www.nuget.org/packages/GuiStracini.SDKBuilder/)
+[![GuiStracini.SDKBuilder NuGet Downloads](https://img.shields.io/nuget/dt/GuiStracini.SDKBuilder.svg)](https://www.nuget.org/packages/GuiStracini.SDKBuilder/)
+[![Github All Releases](https://img.shields.io/github/downloads/guibranco/GuiStracini.SDKBuilder/total.svg?style=plastic)](https://github.com/guibranco/GuiStracini.SDKBuilder)
 
-Disponibiliza uma instancia de ServiceFactory que possui os métodos Get, Post, Put, Delete, Head, Upload e usa uma convenção e atributos
-para gerar os endpoints e realizar as requisições.
+A SDK framework that helps create a C# SDK project for consuming a generic REST API
+
+[![GuiStracini.SDKBuilder](https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuildedr/master/GuiStracini.SDKBuilder.png)
+
+----------
+
+NuGet package: https://www.nuget.org/packages/GuiStracini.SDKBuilder
+```ps
+Install-Package GuiStracini.SDKBuilder
+```
+
+This package allows the creation of a SDK (Sofware Development Kit) for consuming a REST API based on WebAPI2 conventions.
+The ServiceFactory class has the methods Get, Post, Put, Delete, Head and Upload and uses a convetion and custom attributes to generate smart endpoints and do requests.
