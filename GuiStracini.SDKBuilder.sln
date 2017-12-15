@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.SDKBuilder", "GuiStracini.SDKBuilder\GuiStracini.SDKBuilder.csproj", "{821E26FC-447E-4289-A570-9E916C20FDD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.SDKBuilder.Tests", "GuiStracini.SDKBuilder.Tests\GuiStracini.SDKBuilder.Tests.csproj", "{4F4ACA52-65DA-432D-9EF5-6603D0910141}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{821E26FC-447E-4289-A570-9E916C20FDD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821E26FC-447E-4289-A570-9E916C20FDD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821E26FC-447E-4289-A570-9E916C20FDD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821E26FC-447E-4289-A570-9E916C20FDD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F4ACA52-65DA-432D-9EF5-6603D0910141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F4ACA52-65DA-432D-9EF5-6603D0910141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F4ACA52-65DA-432D-9EF5-6603D0910141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F4ACA52-65DA-432D-9EF5-6603D0910141}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A497BC4D-DEAE-47B4-824F-EF2F078F889F}
+	EndGlobalSection
+EndGlobal
