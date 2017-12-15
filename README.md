@@ -7,7 +7,7 @@
 
 A SDK framework that helps create a C# SDK project for consuming a generic REST API
 
-[![GuiStracini.SDKBuilder](https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/master/GuiStracini.SDKBuilder.png)]
+![GuiStracini.SDKBuilder](https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/master/GuiStracini.SDKBuilder.png =250px)
 
 ----------
 
