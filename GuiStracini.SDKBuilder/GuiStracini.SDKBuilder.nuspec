@@ -3,7 +3,7 @@
     <metadata>
         <id>GuiStracini.SDKBuilder</id>
         <version>$version$</version>
-        <title>SDK Builder/title>
+        <title>SDK Builder</title>
         <authors>Guilherme Branco Stracini</authors>
         <owners>Guilherme Branco Stracini</owners>
         <licenseUrl>https://github.com/guibranco/GuiStracini.SDKBuilder/blob/master/LICENSE</licenseUrl>
