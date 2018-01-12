@@ -16,5 +16,14 @@ NuGet package: https://www.nuget.org/packages/GuiStracini.SDKBuilder
 Install-Package GuiStracini.SDKBuilder
 ```
 
-This package allows the creation of a SDK (Sofware Development Kit) for consuming a REST API based on WebAPI2 conventions.
-The ServiceFactory class has the methods Get, Post, Put, Delete, Head and Upload and uses a convetion and custom attributes to generate smart endpoints and do requests.
+This package allows the easy creation of a SDK (Sofware Development Kit) for consuming a REST API based on WebAPI2 conventions.
+The ServiceFactory class implements the IServiceFactory interface, having the methods Get, Post, Put, Delete, Head and Upload and uses a self convetion and custom attributes to generate smart endpoints and do requests.
+
+----------
+
+## Creating a new SDK ##
+
+To create a new SDK, first acquire the API endpoints, the objects (in out) properties and the authorization flow.
+**Currently, this package only supports basic authorization** (via HTTP headers, or JWT-like. OAuth/OAuth2 is not supported by default, but can be implemented by yourself or in a future version, let me know - via PR - if you make some progress on that!)
+
+
