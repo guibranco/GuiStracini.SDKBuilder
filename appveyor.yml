@@ -12,7 +12,7 @@ skip_commits:
 environment:
   SONAR_TOKEN: 
     secure: 9vrPNqRsz+hYefpCtGhxKwMTS3Irj5fjL2DyHQdtVwXcIWgNp4/fuqf7F+dt4aUw
-dotnet_csproj: 
+assembly_info: 
   patch: true 
   file: '**\*.csproj' 
   version: '2.0.{build}' 
