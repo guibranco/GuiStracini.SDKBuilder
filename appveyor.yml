@@ -12,14 +12,13 @@ skip_commits:
 environment:
   SONAR_TOKEN: 
     secure: 9vrPNqRsz+hYefpCtGhxKwMTS3Irj5fjL2DyHQdtVwXcIWgNp4/fuqf7F+dt4aUw
--assembly_info: 
+assembly_info:
   patch: true 
   file: '**\*.csproj' 
-  version: '2.0.{build}' 
   package_version: '2.0.{build}' 
   assembly_version: '2.0.{build}'
-  file_version: '2.0.{build}'
-  informational_version: '2.0.{build}'
+  assembly_file_version: '2.0.{build}'
+  assembly_informational_version: '2.0.{build}'
 before_build:
 - cmd: nuget restore
 - cmd: choco install opencover.portable
