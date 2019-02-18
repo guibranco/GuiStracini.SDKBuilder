@@ -1,32 +1,54 @@
-version: 1.1.{build}
+version: 2.0.{build}
+branches:
+ only:
+   - master
+pull_requests:
+ do_not_increment_build_number: true
 skip_tags: true
 image: Visual Studio 2017
 configuration: Release
+skip_commits:
+  message: /(Created|Update).*\.(png|jpg|jpeg|bmp|gif|md)/
+environment:
+  SONAR_TOKEN: 
+    secure: 9vrPNqRsz+hYefpCtGhxKwMTS3Irj5fjL2DyHQdtVwXcIWgNp4/fuqf7F+dt4aUw
 assembly_info:
-  patch: true
-  file: '**\AssemblyInfo.*'
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}'
+  patch: true 
+  file: '**\*.csproj' 
+  assembly_version: '2.0.{build}'
+  assembly_file_version: '2.0.{build}'
+  assembly_informational_version: '2.0.{build}'
 before_build:
 - cmd: nuget restore
+- cmd: choco install opencover.portable
+- cmd: choco install codecov
 build:
   publish_nuget: true
-  publish_nuget_symbols: true
   include_nuget_references: true
   parallel: true
   verbosity: normal
+build_script:
+ - dotnet tool install --global dotnet-sonarscanner
+ - dotnet sonarscanner begin /k:"guibranco_GuiStracini.SDKBuilder" /d:sonar.organization="guibranco-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%SONAR_TOKEN%" /v:"%APPVEYOR_BUILD_NUMBER%" /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" /d:sonar.coverage.exclusions="GuiStracini.SDKBuilder.Tests/**,**/*Tests.cs" /d:sonar.cs.opencover.reportsPaths="%CD%\GuiStracini.SDKBuilder.Tests\coverage.opencover.xml"
+ - dotnet build
+ - ps: dotnet test .\GuiStracini.SDKBuilder.Tests\GuiStracini.SDKBuilder.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="opencover"
+ - dotnet sonarscanner end /d:sonar.login="%SONAR_TOKEN%"
+ - codecov -f "GuiStracini.SDKBuilder.Tests\coverage.opencover.xml"
 after_build:
-- xcopy C:\projects\guistracini-sdkbuilder\GuiStracini.SDKBuilder\bin\Release\*.* C:\projects\guistracini-sdkbuilder\src\
-- rd /s /q C:\projects\guistracini-sdkbuilder\GuiStracini.SDKBuilder\bin\Release\
-- cd C:\projects\guistracini-sdkbuilder\
+- xcopy %CD%\GuiStracini.SDKBuilder\bin\Release\*.* %CD%\src\
+- copy %CD%\GuiStracini.SDKBuilder\bin\Release\GuiStracini.SDKBuilder.2.0.%APPVEYOR_BUILD_NUMBER%.nupkg GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.nupkg
+- rd /s /q %CD%\GuiStracini.SDKBuilder\bin\Release\
+- cd %CD%
 - 7z a -tzip -mx9 "GuiStracini.SDKBuilder.v%APPVEYOR_BUILD_VERSION%.zip" src
 artifacts:
 - path: GuiStracini.SDKBuilder.v%APPVEYOR_BUILD_VERSION%.zip
   name: ZipFile
+- path: GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.nupkg
+  name: Package
 deploy:
 - provider: Environment
   name: NuGet
+  artifact: Package
 - provider: GitHub
   tag: $(appveyor_build_version)
   auth_token:
