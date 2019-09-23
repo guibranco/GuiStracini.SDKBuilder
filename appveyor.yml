@@ -45,7 +45,7 @@ build_script:
  - codecov -f "Tests\GuiStracini.SDKBuilder.Tests\coverage.opencover.xml"
 after_build:
 - xcopy %CD%\Src\GuiStracini.SDKBuilder\bin\Release\netstandard2.0\*.* %CD%\Build\
-- copy %CD%\Src\GuiStracini.SDKBuilder\bin\Release\GuiStracini.SDKBuilder.1.0.%APPVEYOR_BUILD_NUMBER%.nupkg GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.nupkg
+- copy %CD%\Src\GuiStracini.SDKBuilder\bin\Release\GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.nupkg GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.nupkg
 - rd /s /q %CD%\Src\GuiStracini.SDKBuilder\bin\Release\
 - cd %CD%
 - 7z a -tzip -mx9 "GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.zip" Build
