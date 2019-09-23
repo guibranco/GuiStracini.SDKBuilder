@@ -1,4 +1,4 @@
-﻿namespace GuiStracini.SDKBuilder.Enums
+﻿namespace GuiStracini.SDKBuilder
 {
     internal enum ActionMethod
     {
