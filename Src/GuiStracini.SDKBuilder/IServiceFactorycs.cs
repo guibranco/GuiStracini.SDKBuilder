@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : GuiStracini.Mandae
-// Author           : Guilherme Branco Stracini
-// Created          : 2018-01-10
-//
-// Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2019-01-15
-// ***********************************************************************
-// <copyright file="IServiceFactory.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018-2019 Guilherme Branco Stracini
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-namespace GuiStracini.SDKBuilder
+﻿namespace GuiStracini.SDKBuilder
 {
     using System.Threading;
     using System.Threading.Tasks;
@@ -22,13 +9,23 @@ namespace GuiStracini.SDKBuilder
     public interface IServiceFactory
     {
         /// <summary>
+        /// Heads the specified data.
+        /// </summary>
+        /// <typeparam name="TIn">The type of the in.</typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns></returns>
+        ValueTask<TIn> Head<TIn>(TIn data, CancellationToken cancellationToken)
+            where TIn : BaseRequest;
+
+        /// <summary>
         /// Gets the specified data.
         /// </summary>
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task<TIn> Get<TIn>(TIn data, CancellationToken token)
+        ValueTask<TIn> Get<TIn>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseRequest;
 
         /// <summary>
@@ -37,9 +34,9 @@ namespace GuiStracini.SDKBuilder
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <typeparam name="TOut">The type of the out.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task<TOut> Get<TIn, TOut>(TIn data, CancellationToken token)
+        ValueTask<TOut> Get<TIn, TOut>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseRequest
             where TOut : BaseResponse;
 
@@ -48,9 +45,9 @@ namespace GuiStracini.SDKBuilder
         /// </summary>
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task<TIn> Post<TIn>(TIn data, CancellationToken token)
+        ValueTask<TIn> Post<TIn>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseRequest;
 
         /// <summary>
@@ -59,9 +56,9 @@ namespace GuiStracini.SDKBuilder
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <typeparam name="TOut">The type of the out.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task<TOut> Post<TIn, TOut>(TIn data, CancellationToken token)
+        ValueTask<TOut> Post<TIn, TOut>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseRequest
             where TOut : BaseResponse;
 
@@ -70,9 +67,9 @@ namespace GuiStracini.SDKBuilder
         /// </summary>
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task<TIn> Put<TIn>(TIn data, CancellationToken token)
+        ValueTask<TIn> Put<TIn>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseRequest;
 
         /// <summary>
@@ -81,9 +78,9 @@ namespace GuiStracini.SDKBuilder
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <typeparam name="TOut">The type of the out.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task<TOut> Put<TIn, TOut>(TIn data, CancellationToken token)
+        ValueTask<TOut> Put<TIn, TOut>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseRequest
             where TOut : BaseResponse;
 
@@ -92,9 +89,9 @@ namespace GuiStracini.SDKBuilder
         /// </summary>
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task<TIn> Patch<TIn>(TIn data, CancellationToken token)
+        ValueTask<TIn> Patch<TIn>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseResponse;
 
         /// <summary>
@@ -103,9 +100,9 @@ namespace GuiStracini.SDKBuilder
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <typeparam name="TOut">The type of the out.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task<TOut> Patch<TIn, TOut>(TIn data, CancellationToken token)
+        ValueTask<TOut> Patch<TIn, TOut>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseRequest
             where TOut : BaseResponse;
 
@@ -114,9 +111,9 @@ namespace GuiStracini.SDKBuilder
         /// </summary>
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task<TIn> Delete<TIn>(TIn data, CancellationToken token)
+        ValueTask<TIn> Delete<TIn>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseRequest;
 
     }

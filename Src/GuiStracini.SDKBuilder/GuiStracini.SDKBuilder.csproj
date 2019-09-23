@@ -7,12 +7,17 @@
 	<Authors>Guilherme Branco Stracini</Authors>
     <Description>A SDK framework that helps create a C# SDK project for consuming a generic REST API based on Microsoft WebAPI 2 conventions</Description>
     <Copyright>© 2019 Guilherme Branco Stracini. All rights reserved.</Copyright>
-    <PackageLicense>https://github.com/guibranco/GuiStracini.SDKBuilder/blob/master/LICENSE</PackageLicense>
+    <PackageLicenseUrl>https://github.com/guibranco/GuiStracini.SDKBuilder/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/guibranco/GuiStracini.SDKBuilder/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/guibranco/GuiStracini.SDKBuilder</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>api wrapper sdk C# builder factory webapi conventions</PackageTags>
     <Version>2.0.0</Version>
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <PackageIconUrl>https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/master/GuiStracini.SDKBuilder.png</PackageIconUrl>
+    <PackageReleaseNotes>.NET Standard compatibility</PackageReleaseNotes>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.3" />
+  </ItemGroup>
 </Project>
