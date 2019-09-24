@@ -1,15 +1,7 @@
 ﻿namespace GuiStracini.SDKBuilder
 {
-    /// <summary>
-    /// The request method enumeration
-    /// </summary>
-    public enum RequestMethod
+    internal enum ActionMethod
     {
-        /// <summary>
-        /// The none
-        /// </summary>
-        NONE,
-
         /// <summary>
         /// The head
         /// </summary>
@@ -31,9 +23,19 @@
         PUT,
 
         /// <summary>
+        /// The patch
+        /// </summary>
+        PATCH,
+
+        /// <summary>
         /// The delete
         /// </summary>
         DELETE,
+
+        /// <summary>
+        /// The options
+        /// </summary>
+        OPTIONS,
 
         /// <summary>
         /// The upload

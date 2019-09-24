@@ -1,17 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.SDKBuilder", "GuiStracini.SDKBuilder\GuiStracini.SDKBuilder.csproj", "{821E26FC-447E-4289-A570-9E916C20FDD2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{4F7DD09C-BC5E-42D9-AD48-195487322D40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.SDKBuilder.Tests", "GuiStracini.SDKBuilder.Tests\GuiStracini.SDKBuilder.Tests.csproj", "{4F4ACA52-65DA-432D-9EF5-6603D0910141}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D580A868-1FA2-41A2-AA93-EEC1BB77E5B8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{184E111C-60D8-4D28-BBAC-48DCC631ED5B}"
-	ProjectSection(SolutionItems) = preProject
-		appveyor.yml = appveyor.yml
-		README.md = README.md
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuiStracini.SDKBuilder", "Src\GuiStracini.SDKBuilder\GuiStracini.SDKBuilder.csproj", "{528839BC-251E-40CB-8FD3-79C7150DC060}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.SDKBuilder.Tests", "Tests\GuiStracini.SDKBuilder.Tests\GuiStracini.SDKBuilder.Tests.csproj", "{66EC2541-202B-4E76-8D20-E6553CA512C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,19 +17,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{821E26FC-447E-4289-A570-9E916C20FDD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{821E26FC-447E-4289-A570-9E916C20FDD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{821E26FC-447E-4289-A570-9E916C20FDD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{821E26FC-447E-4289-A570-9E916C20FDD2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F4ACA52-65DA-432D-9EF5-6603D0910141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F4ACA52-65DA-432D-9EF5-6603D0910141}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F4ACA52-65DA-432D-9EF5-6603D0910141}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F4ACA52-65DA-432D-9EF5-6603D0910141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{528839BC-251E-40CB-8FD3-79C7150DC060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{528839BC-251E-40CB-8FD3-79C7150DC060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{528839BC-251E-40CB-8FD3-79C7150DC060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{528839BC-251E-40CB-8FD3-79C7150DC060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66EC2541-202B-4E76-8D20-E6553CA512C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66EC2541-202B-4E76-8D20-E6553CA512C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66EC2541-202B-4E76-8D20-E6553CA512C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66EC2541-202B-4E76-8D20-E6553CA512C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{528839BC-251E-40CB-8FD3-79C7150DC060} = {4F7DD09C-BC5E-42D9-AD48-195487322D40}
+		{66EC2541-202B-4E76-8D20-E6553CA512C5} = {D580A868-1FA2-41A2-AA93-EEC1BB77E5B8}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A497BC4D-DEAE-47B4-824F-EF2F078F889F}
+		SolutionGuid = {1B694BF5-E85C-47EE-8C96-64D61A300A2F}
 	EndGlobalSection
 EndGlobal
