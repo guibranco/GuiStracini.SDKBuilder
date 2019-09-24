@@ -3,11 +3,11 @@
     using System;
 
     /// <summary>
-    /// Class EndpointRouteAttribute. This class cannot be inherited.
+    /// Class EndpointRouteAttribute.
     /// </summary>
     /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Class)]
-    public sealed class EndpointRouteAttribute : Attribute
+    public class EndpointRouteAttribute : Attribute
     {
         #region ~Ctor
 
