@@ -44,7 +44,7 @@
     /// </example>
     /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
-    internal sealed class AdditionalRouteValueAttribute : Attribute
+    public sealed class AdditionalRouteValueAttribute : Attribute
     {
         /// <summary>
         /// Gets or sets the type.
