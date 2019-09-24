@@ -1,6 +1,6 @@
 ﻿namespace GuiStracini.SDKBuilder
 {
-    internal enum ActionMethod
+    public enum ActionMethod
     {
         /// <summary>
         /// The head
