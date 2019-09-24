@@ -8,7 +8,7 @@
     /// </summary>
     /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Property)]
-    public sealed class DefaultRouteValueAttribute : Attribute
+    public class DefaultRouteValueAttribute : Attribute
     {
         #region ~Ctor
 

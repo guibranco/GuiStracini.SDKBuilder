@@ -8,7 +8,7 @@
     /// </summary>
     /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Field)]
-    public sealed class EnumRouteValueAttribute : Attribute
+    public class EnumRouteValueAttribute : Attribute
     {
         /// <summary>
         /// Gets the route value.
