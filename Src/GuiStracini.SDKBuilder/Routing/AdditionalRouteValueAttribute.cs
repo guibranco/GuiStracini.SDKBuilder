@@ -1,5 +1,7 @@
 ﻿namespace GuiStracini.SDKBuilder.Routing
 {
+    using System;
+
     /// <summary>
     /// Use this attribute to include the value os the property in the request endpoint for specific action method.
     /// E.g. A GET/PUT request should include the field "Name" of a entity in the URL, so add this attribute to the Name property in the transport class, and set the ActionMethod to GET and PUT (2 attributes)

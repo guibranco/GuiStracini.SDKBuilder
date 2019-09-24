@@ -1,5 +1,7 @@
 ﻿namespace GuiStracini.SDKBuilder.Routing
 {
+    using System;
+
     /// <summary>
     /// Class EndpointRouteAttribute. This class cannot be inherited.
     /// </summary>

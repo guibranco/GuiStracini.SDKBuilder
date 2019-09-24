@@ -1,5 +1,7 @@
 ﻿namespace GuiStracini.SDKBuilder.Routing
 {
+    using System;
+
     /// <summary>
     /// The enum route value attribute class.
     /// This attribute is used to get a representation value of a enum value to use in a route / query string parameter 
