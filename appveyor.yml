@@ -1,59 +1,96 @@
-version: 2.0.{build}
-pull_requests:
- do_not_increment_build_number: true
+version: 2.2.{build}
 skip_tags: true
-image: Visual Studio 2017
+image: Visual Studio 2019
 configuration: Release
 skip_commits:
-  message: /(Created|Update).*\.(png|jpg|jpeg|bmp|gif|md)/
-skip_branch_with_pr: true
+  message: /(Create|Update) .*\.(png|jpg|jpeg|bmp|gif|md)/
+  
 environment:
-  SONAR_TOKEN: 
-    secure: /a1k6MVBObLOM5paiNyCBAVgYtfX8cj+e3+FTFiu74tJWbEZbh2jAj5V0e6P4BVI
+ SOLUTION_NAME: GuiStracini.SDKBuilder
+ SONAR_TOKEN: 
+   secure: ve2nGKxIC9PB2BCgCyvPduxTjXDnzrk+YBJyw49LoRCADgQ0MrKIqM4b5daFxqAC
+ GITHUB_TOKEN:
+   secure: AD1z81FqZlvGkCEyDzJ3g6sIJ93ecUE9EuqfUxc4CMiFGW139pWZk+/huuTY5jzG
+ CODACY_PROJECT_TOKEN:
+  secure: rI95hpNbtpydyhYHYyp+2/bKjTZO99rZSDUOL36R4wsGvvX52FN98XGHVhslYI6R
+
 dotnet_csproj: 
   patch: true 
   file: '**\*.csproj' 
-  version: '2.0.{build}' 
-  package_version: '2.0.{build}' 
-  assembly_version: '2.0.{build}'
-  file_version: '2.0.{build}'
-  informational_version: '2.0.{build}'
+  version: '{version}' 
+  package_version: '{version}' 
+  assembly_version: '{version}' 
+  file_version: '{version}' 
+  informational_version: '{version}'
+  
 before_build:
-- cmd: nuget restore
-- cmd: choco install opencover.portable
-- cmd: choco install codecov
+ - ps: $env:SONAR_PROJECT = "$env:APPVEYOR_REPO_NAME" -replace "/","_"
+ - ps: $env:SONAR_ORGANIZATION = "$env:APPVEYOR_REPO_NAME" -replace "/.*$","-github"
+ - cmd: nuget restore
+ - cmd: choco install opencover.portable
+ - cmd: choco install codecov
+ - cmd: curl -L https://github.com/codacy/codacy-coverage-reporter/releases/download/11.2.3/codacy-coverage-reporter-assembly-11.2.3.jar > ./codacy-test-reporter.jar
+ - cmd: dotnet tool install --global dotnet-sonarscanner
+  
 build:
   publish_nuget: true
   include_nuget_references: true
   parallel: true
   verbosity: normal
+
 build_script:
- - dotnet tool install --global dotnet-sonarscanner
- - ps: 'if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { & 
-  dotnet sonarscanner begin 
- /k:"guibranco_GuiStracini.SDKBuilder" 
- /o:"guibranco-github" 
- /d:sonar.host.url="https://sonarcloud.io" 
- /d:sonar.login="$env:SONAR_TOKEN" 
- /v:"$env:APPVEYOR_BUILD_NUMBER" 
- /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" 
- /d:sonar.coverage.exclusions="GuiStracini.SDKBuilder.Tests/**,**/*Tests.cs" 
- /d:sonar.cs.opencover.reportsPaths="$env:CD\Tests\GuiStracini.SDKBuilder.Tests\coverage.opencover.xml" }'
- - dotnet build
- - ps: dotnet test .\Tests\GuiStracini.SDKBuilder.Tests\GuiStracini.SDKBuilder.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="opencover"
- - ps: 'if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { & dotnet sonarscanner end /d:sonar.login="$env:SONAR_TOKEN" }'
- - codecov -f "Tests\GuiStracini.SDKBuilder.Tests\coverage.opencover.xml"
+- ps: 'if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { &
+        dotnet sonarscanner begin 
+         /k:"$env:SONAR_PROJECT" 
+         /o:"$env:SONAR_ORGANIZATION" 
+         /d:sonar.branch.name="$env:APPVEYOR_REPO_BRANCH"
+         /d:sonar.host.url="https://sonarcloud.io" 
+         /d:sonar.login="$env:SONAR_TOKEN" 
+         /v:"$env:APPVEYOR_BUILD_NUMBER" 
+         /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" 
+         /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs" 
+         /d:sonar.cs.opencover.reportsPaths="$env:CD\Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
+    }'
+- ps: 'if ($env:APPVEYOR_PULL_REQUEST_NUMBER) { &
+        dotnet sonarscanner begin 
+         /k:"$env:SONAR_PROJECT" 
+         /o:"$env:SONAR_ORGANIZATION" 
+         /d:sonar.pullrequest.key="$env:APPVEYOR_PULL_REQUEST_NUMBER"
+         /d:sonar.host.url="https://sonarcloud.io" 
+         /d:sonar.login="$env:SONAR_TOKEN" 
+         /v:"$env:APPVEYOR_BUILD_NUMBER" 
+         /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" 
+         /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs" 
+         /d:sonar.cs.opencover.reportsPaths="$env:CD\Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
+    }'
+- dotnet build %SOLUTION_NAME%.sln
+- dotnet test .\Tests\%SOLUTION_NAME%.Tests\%SOLUTION_NAME%.Tests.csproj 
+ /p:CollectCoverage=true 
+ /p:CoverletOutputFormat="opencover"
+- codecov -f "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
+- SET JAVA_HOME=C:\Program Files\Java\jdk11
+- SET PATH=%JAVA_HOME%\bin;%PATH%
+- java 
+ -jar 
+ ./codacy-test-reporter.jar report 
+ -l CSharp 
+ -t %CODACY_PROJECT_TOKEN% 
+ -r "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
+- dotnet sonarscanner end /d:sonar.login="%SONAR_TOKEN%"
+ 
 after_build:
-- xcopy %CD%\Src\GuiStracini.SDKBuilder\bin\Release\netstandard2.0\*.* %CD%\Build\
-- copy %CD%\Src\GuiStracini.SDKBuilder\bin\Release\GuiStracini.SDKBuilder.2.0.%APPVEYOR_BUILD_NUMBER%.nupkg GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.nupkg
-- rd /s /q %CD%\Src\GuiStracini.SDKBuilder\bin\Release\
+- xcopy %CD%\Src\%SOLUTION_NAME%\bin\Release\netstandard2.0\*.* %CD%\Build\
+- copy %CD%\Src\%SOLUTION_NAME%\bin\Release\%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.nupkg %SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.nupkg
+- rd /s /q %CD%\Src\%SOLUTION_NAME%\bin\Release\
 - cd %CD%
-- 7z a -tzip -mx9 "GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.zip" Build
+- 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.zip" Build
+
 artifacts:
-- path: GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.zip
+- path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.zip
   name: ZipFile
-- path: GuiStracini.SDKBuilder.%APPVEYOR_BUILD_VERSION%.nupkg
+- path:  $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.nupkg
   name: Package
+  
 deploy:
 - provider: Environment
   name: NuGet
@@ -64,7 +101,6 @@ deploy:
   on:
    branch: master
   tag: $(appveyor_build_version)
-  auth_token:
-    secure: VgYYJdvNLy/n9/uxxlaF0bMpIIrVxCb+dGr66U9nWfPWSN2ySdfuilO8klAw0uvF
+  auth_token: $(GITHUB_TOKEN)
   force_update: true
   artifact: ZipFile
