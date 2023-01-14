@@ -20,9 +20,11 @@ public static class RequestHelpers
     /// <returns></returns>
     public static EndpointRouteAttribute GetRequestEndPointAttribute(this BaseRequest request)
     {
-        if (request.GetType().GetCustomAttributes(typeof(EndpointRouteAttribute), false) is not EndpointRouteAttribute[]
-                endpoints ||
-            !endpoints.Any())
+        if (
+            request.GetType().GetCustomAttributes(typeof(EndpointRouteAttribute), false)
+                is not EndpointRouteAttribute[] endpoints
+            || !endpoints.Any()
+        )
         {
             return null;
         }
@@ -69,15 +71,21 @@ public static class RequestHelpers
 
             var propertyType = property.PropertyType;
             var propertyValue = property.GetValue(request, null);
-            if (propertyValue == null ||
-                propertyType == typeof(int) && Convert.ToInt32(propertyValue) == 0 ||
-                propertyType == typeof(long) && Convert.ToInt64(propertyValue) == 0 ||
-                propertyType == typeof(decimal) && Convert.ToDecimal(propertyValue) == new decimal(0) ||
-                propertyType == typeof(string) && string.IsNullOrEmpty(propertyValue.ToString()))
+            if (
+                propertyValue == null
+                || propertyType == typeof(int) && Convert.ToInt32(propertyValue) == 0
+                || propertyType == typeof(long) && Convert.ToInt64(propertyValue) == 0
+                || propertyType == typeof(decimal)
+                    && Convert.ToDecimal(propertyValue) == new decimal(0)
+                || propertyType == typeof(string) && string.IsNullOrEmpty(propertyValue.ToString())
+            )
             {
                 var defaultValue = string.Empty;
-                if (property.GetCustomAttributes(typeof(DefaultRouteValueAttribute), false) is
-                        DefaultRouteValueAttribute[] defaultsValues && defaultsValues.Any())
+                if (
+                    property.GetCustomAttributes(typeof(DefaultRouteValueAttribute), false)
+                        is DefaultRouteValueAttribute[] defaultsValues
+                    && defaultsValues.Any()
+                )
                 {
                     defaultValue = defaultsValues.Single().DefaultValue;
                 }
@@ -95,8 +103,11 @@ public static class RequestHelpers
             if (property.PropertyType.IsEnum)
             {
                 var field = property.PropertyType.GetField(value);
-                if (field.GetCustomAttributes(typeof(EnumRouteValueAttribute), false) is EnumRouteValueAttribute[] enumRouteValue &&
-                    enumRouteValue.Any())
+                if (
+                    field.GetCustomAttributes(typeof(EnumRouteValueAttribute), false)
+                        is EnumRouteValueAttribute[] enumRouteValue
+                    && enumRouteValue.Any()
+                )
                 {
                     value = enumRouteValue.Single().RouteValue;
                 }
@@ -122,10 +133,15 @@ public static class RequestHelpers
     /// <param name="request">The request.</param>
     /// <param name="requestMethod">The request method.</param>
     /// <returns>String.</returns>
-    public static string GetRequestAdditionalParameter(this BaseRequest request, ActionMethod requestMethod)
+    public static string GetRequestAdditionalParameter(
+        this BaseRequest request,
+        ActionMethod requestMethod
+    )
     {
         var type = request.GetType();
-        var properties = type.GetProperties().Where(prop => prop.IsDefined(typeof(AdditionalRouteValueAttribute), false)).ToList();
+        var properties = type.GetProperties()
+            .Where(prop => prop.IsDefined(typeof(AdditionalRouteValueAttribute), false))
+            .ToList();
         if (!properties.Any())
         {
             return string.Empty;
@@ -134,7 +150,12 @@ public static class RequestHelpers
         var builder = new StringBuilder();
         foreach (var property in properties)
         {
-            if (!(property.GetCustomAttributes(typeof(AdditionalRouteValueAttribute), false) is AdditionalRouteValueAttribute[] attributes) || attributes.All(a => a.Type != requestMethod))
+            if (
+                !(
+                    property.GetCustomAttributes(typeof(AdditionalRouteValueAttribute), false)
+                    is AdditionalRouteValueAttribute[] attributes
+                ) || attributes.All(a => a.Type != requestMethod)
+            )
             {
                 continue;
             }
@@ -152,18 +173,26 @@ public static class RequestHelpers
             }
 
             var propertyName = property.Name;
-            if (property.GetCustomAttributes(typeof(JsonPropertyAttribute), false) is JsonPropertyAttribute[] attributesJson &&
-                attributesJson.Any())
+            if (
+                property.GetCustomAttributes(typeof(JsonPropertyAttribute), false)
+                    is JsonPropertyAttribute[] attributesJson
+                && attributesJson.Any()
+            )
             {
                 propertyName = attributesJson.Single().PropertyName;
             }
 
-            if (property.PropertyType == typeof(string) ||
-                property.PropertyType == typeof(bool) ||
-                property.PropertyType == typeof(int) && Convert.ToInt32(propertyValue) > 0 ||
-                property.PropertyType == typeof(long) && Convert.ToInt64(propertyValue) > 0)
+            if (
+                property.PropertyType == typeof(string)
+                || property.PropertyType == typeof(bool)
+                || property.PropertyType == typeof(int) && Convert.ToInt32(propertyValue) > 0
+                || property.PropertyType == typeof(long) && Convert.ToInt64(propertyValue) > 0
+            )
             {
-                builder.Append("/").AppendFormat("{0}", addAsQueryString ? $"?{propertyName}=" : string.Empty).Append(propertyValue);
+                builder
+                    .Append("/")
+                    .AppendFormat("{0}", addAsQueryString ? $"?{propertyName}=" : string.Empty)
+                    .Append(propertyValue);
             }
         }
         return builder.ToString();

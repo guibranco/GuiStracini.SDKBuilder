@@ -15,8 +15,7 @@ public interface IServiceFactory
     /// <param name="data">The data.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns></returns>
-    ValueTask<TIn> Head<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest;
+    ValueTask<TIn> Head<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest;
 
     /// <summary>
     /// Gets the specified data.
@@ -25,8 +24,7 @@ public interface IServiceFactory
     /// <param name="data">The data.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns></returns>
-    ValueTask<TIn> Get<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest;
+    ValueTask<TIn> Get<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest;
 
     /// <summary>
     /// Gets the specified data.
@@ -47,8 +45,7 @@ public interface IServiceFactory
     /// <param name="data">The data.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns></returns>
-    ValueTask<TIn> Post<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest;
+    ValueTask<TIn> Post<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest;
 
     /// <summary>
     /// Posts the specified data.
@@ -69,8 +66,7 @@ public interface IServiceFactory
     /// <param name="data">The data.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns></returns>
-    ValueTask<TIn> Put<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest;
+    ValueTask<TIn> Put<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest;
 
     /// <summary>
     /// Puts the specified data.
@@ -115,5 +111,4 @@ public interface IServiceFactory
     /// <returns></returns>
     ValueTask<TIn> Delete<TIn>(TIn data, CancellationToken cancellationToken)
         where TIn : BaseRequest;
-
 }

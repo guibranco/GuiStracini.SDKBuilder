@@ -31,5 +31,4 @@ public class EndpointRouteAttribute : Attribute
     public string EndPoint { get; }
 
     #endregion
-
 }

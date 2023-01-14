@@ -12,6 +12,7 @@ public abstract class BaseResponse
     /// The error code.
     /// </value>
     public int ErrorCode { get; set; }
+
     /// <summary>
     /// Gets or sets the error message.
     /// </summary>

@@ -3,5 +3,4 @@
 /// <summary>
 /// The base request class
 /// </summary>
-public abstract class BaseRequest
-{ }
+public abstract class BaseRequest { }

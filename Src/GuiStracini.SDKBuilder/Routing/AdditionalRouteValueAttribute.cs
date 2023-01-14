@@ -10,37 +10,37 @@ using System;
 /// Using a generic transport class, inherited from <see cref="BaseRequest"/>
 /// <code>
 /// [RouteEndpoint("/Sample/{id}")] //The id property is used in all requests if it's populated
-/// public class SampleTransport :BaseRequest 
+/// public class SampleTransport :BaseRequest
 /// {
 ///     public Int32 Id { get; set; }
-/// 
+///
 ///     [AdditionalRouteValue(ActionMethod.GET)]
 ///     [AdditionalRouteValue(ActionMethod.PUT)]
 ///     public String Name { get; set; } //The property Name is included in the url as querystring only in GET or PUT requests.
 /// }
-/// 
+///
 /// var sample = new SampleTransport { Id = 1, Name = "Sample" };
 /// var endPointResult = sample.GetRequestEndPoint();
 /// Assert.AreEqual("/Sample/1/Sample", endpointResult);
 /// </code>
-/// 
+///
 /// If the name of the property and its value should be added as query string to the url, so set the second constructor parameter to <c>true</c>
 /// <code>
 /// [RouteEndpoint("/Sample/{id}")] //The id property is used in all requests if it's populated
-/// public class SampleTransport :BaseRequest 
+/// public class SampleTransport :BaseRequest
 /// {
 ///     public Int32 Id { get; set; }
-/// 
+///
 ///     [AdditionalRouteValue(ActionMethod.GET, true)]
 ///     [AdditionalRouteValue(ActionMethod.PUT, true)]
 ///     public String Name { get; set; } //The property Name is included in the url as querystring only in GET or PUT requests.
 /// }
-/// 
+///
 /// var sample = new SampleTransport { Id = 1, Name = "Sample" };
 /// var endPointResult = sample.GetRequestEndPoint();
 /// Assert.AreEqual("/Sample/1?Name=Sample", endpointResult);
 /// </code>
-/// 
+///
 /// </example>
 /// <seealso cref="System.Attribute" />
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
