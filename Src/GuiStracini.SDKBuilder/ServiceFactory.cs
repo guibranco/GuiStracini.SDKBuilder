@@ -24,13 +24,13 @@ public class ServiceFactory : IServiceFactory
     /// <typeparam name="TOut">The type of the out.</typeparam>
     /// <param name="method">The method.</param>
     /// <param name="requestObject">The request object.</param>
-    /// <param name="token">The token.</param>
+    /// <param name="cancellationToken">The cancellationToken.</param>
     /// <returns></returns>
-    private async Task<TOut> ExecuteAsync<TIn, TOut>(ActionMethod method, TIn requestObject,
-        CancellationToken token) where TIn : BaseRequest
+    private static async Task<TOut> ExecuteAsync<TIn, TOut>(ActionMethod method, TIn requestObject,
+        CancellationToken cancellationToken) where TIn : BaseRequest
     {
-        token.ThrowIfCancellationRequested();
-        await Task.Delay(1000, token);
+        cancellationToken.ThrowIfCancellationRequested();
+        await Task.Delay(1000, cancellationToken);
         return default;
     }
 
@@ -41,61 +41,61 @@ public class ServiceFactory : IServiceFactory
     /// <inheritdoc />
     public async ValueTask<TIn> Head<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest
     {
-        throw new System.NotImplementedException();
+        return await ExecuteAsync<TIn, TIn>(ActionMethod.HEAD, data, cancellationToken);
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Get<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest
     {
-        throw new System.NotImplementedException();
+        return await Task.FromResult(data);
     }
 
     /// <inheritdoc />
     public async ValueTask<TOut> Get<TIn, TOut>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest where TOut : BaseResponse
     {
-        throw new System.NotImplementedException();
+        return await Task.FromResult((TOut)null);
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Post<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest
     {
-        throw new System.NotImplementedException();
+        return await Task.FromResult(data);
     }
 
     /// <inheritdoc />
     public async ValueTask<TOut> Post<TIn, TOut>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest where TOut : BaseResponse
     {
-        throw new System.NotImplementedException();
+        return await Task.FromResult((TOut)null);
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Put<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest
     {
-        throw new System.NotImplementedException();
+        return await Task.FromResult(data);
     }
 
     /// <inheritdoc />
     public async ValueTask<TOut> Put<TIn, TOut>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest where TOut : BaseResponse
     {
-        throw new System.NotImplementedException();
+        return await Task.FromResult((TOut)null);
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Patch<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseResponse
     {
-        throw new System.NotImplementedException();
+        return await Task.FromResult(data);
     }
 
     /// <inheritdoc />
     public async ValueTask<TOut> Patch<TIn, TOut>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest where TOut : BaseResponse
     {
-        throw new System.NotImplementedException();
+        return await Task.FromResult((TOut)null);
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Delete<TIn>(TIn data, CancellationToken cancellationToken) where TIn : BaseRequest
     {
-        throw new System.NotImplementedException();
+        return await Task.FromResult(data);
     }
 
     #endregion
