@@ -69,7 +69,7 @@ build_script:
          /d:sonar.cs.opencover.reportsPaths="$env:CD\Tests\$env:SOLUTION_NAME.UnitTests\coverage.opencover.xml"
     }'
 - dotnet build %SOLUTION_NAME%.sln
-- dotnet test .\Tests\%SOLUTION_NAME%.UnitTests\%SOLUTION_NAME%.UnitTests.csproj 
+- dotnet test --no-restore .\Tests\%SOLUTION_NAME%.UnitTests\%SOLUTION_NAME%.UnitTests.csproj 
  /p:CollectCoverage=true 
  /p:CoverletOutputFormat="opencover"
 - codecov -f "%CD%\Tests\%SOLUTION_NAME%.UnitTests\coverage.opencover.xml"
