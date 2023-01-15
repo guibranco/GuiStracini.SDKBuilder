@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Src\GuiStracini.SDKBuilder\GuiStracini.SDKBuilder.csproj" />
+    <ProjectReference Include="..\..\Src\GuiStracini.SDKBuilder\GuiStracini.SDKBuilder.csproj" />
   </ItemGroup>
 
 </Project>
