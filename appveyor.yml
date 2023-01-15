@@ -1,6 +1,6 @@
 version: 3.0.{build}
 skip_tags: true
-image: Visual Studio 2022
+image: Visual Studio 2019
 configuration: Release
 skip_commits:
   message: /(Create|Update) .*\.(png|jpg|jpeg|bmp|gif|md)/
@@ -69,7 +69,7 @@ build_script:
          /d:sonar.cs.opencover.reportsPaths="$env:CD\Tests\$env:SOLUTION_NAME.UnitTests\coverage.opencover.xml"
     }'
 - dotnet build %SOLUTION_NAME%.sln
-- dotnet test --no-build .\Tests\%SOLUTION_NAME%.UnitTests\%SOLUTION_NAME%.UnitTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="opencover"
+- dotnet test .\Tests\%SOLUTION_NAME%.UnitTests\%SOLUTION_NAME%.UnitTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="opencover"
 - codecov -f "%CD%\Tests\%SOLUTION_NAME%.UnitTests\coverage.opencover.xml"
 - java 
  -jar 
