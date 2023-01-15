@@ -53,7 +53,7 @@ build_script:
          /d:sonar.login="$env:SONAR_TOKEN" 
          /v:"$env:APPVEYOR_BUILD_NUMBER" 
          /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" 
-         /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.UNitTests/**,**/*Tests.cs" 
+         /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.UnitTests/**,**/*Tests.cs" 
          /d:sonar.cs.opencover.reportsPaths="$env:CD\Tests\$env:SOLUTION_NAME.UnitTests\coverage.opencover.xml"
     }'
 - ps: 'if ($env:APPVEYOR_PULL_REQUEST_NUMBER) { &
@@ -65,7 +65,7 @@ build_script:
          /d:sonar.login="$env:SONAR_TOKEN" 
          /v:"$env:APPVEYOR_BUILD_NUMBER" 
          /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" 
-         /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.UNitTests/**,**/*Tests.cs" 
+         /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.UnitTests/**,**/*Tests.cs" 
          /d:sonar.cs.opencover.reportsPaths="$env:CD\Tests\$env:SOLUTION_NAME.UnitTests\coverage.opencover.xml"
     }'
 - dotnet build %SOLUTION_NAME%.sln
