@@ -1,24 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <ProjectGuid>528839BC-251E-40CB-8FD3-79C7150DC060</ProjectGuid>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Authors>Guilherme Branco Stracini</Authors>
-    <Description>A SDK framework that helps create a C# SDK project for consuming a generic REST API based on Microsoft WebAPI 2 conventions</Description>
-    <Copyright>© 2019 Guilherme Branco Stracini. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/guibranco/GuiStracini.SDKBuilder/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/guibranco/GuiStracini.SDKBuilder/</PackageProjectUrl>
+	  <Authors>Guilherme Branco Stracini</Authors>
+    <Copyright>© 2019 - 2023 Guilherme Branco Stracini. All rights reserved.</Copyright>
+    <Description>A SDK framework that helps create a C# SDK project for consuming a generic REST API based on Microsoft WebAPI 2 conventions</Description>    
+    <PackageProjectUrl>https://guibranco.github.io/GuiStracini.SDKBuilder/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/guibranco/GuiStracini.SDKBuilder</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>api wrapper sdk C# builder factory webapi conventions</PackageTags>
-    <Version>2.0.0</Version>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <PackageIconUrl>https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/master/GuiStracini.SDKBuilder.png</PackageIconUrl>
-    <PackageReleaseNotes>.NET Standard compatibility</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/master/logo.png?v=1</PackageIconUrl>
+    <PackageIcon>logo.png</PackageIcon>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../LICENSE" Pack="true" PackagePath="\" />
+    <None Include="../../logo.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>

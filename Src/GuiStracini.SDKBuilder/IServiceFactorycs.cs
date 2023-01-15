@@ -115,6 +115,5 @@
         /// <returns></returns>
         ValueTask<TIn> Delete<TIn>(TIn data, CancellationToken cancellationToken)
             where TIn : BaseRequest;
-
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace GuiStracini.SDKBuilder.Tests
+﻿namespace GuiStracini.SDKBuilder.UnitTests
 {
     using Routing;
     using Xunit;
@@ -15,10 +15,7 @@
         public void RequestEndpoint()
         {
             const string expected = "something/my-string";
-            var dummy = new DummyRequest
-            {
-                Dummy = "my-string"
-            };
+            var dummy = new DummyRequest { Dummy = "my-string" };
             var actual = dummy.GetRequestEndPoint();
             Assert.Equal(expected, actual);
         }
@@ -44,8 +41,23 @@
             const string expected = "something/?f=1&s=100&third=fourth";
             var dummy = new DummyWithEnumRequest
             {
-                EnumKey = MyEnum.RD,
+                EnumerationKey = MyEnumeration.RD,
                 EnumValue = "fourth"
+            };
+            var actual = dummy.GetRequestEndPoint();
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void RequestParametersDefaultValueOverride()
+        {
+            const string expected = "something/?f=2000&s=1000&third=fourth";
+            var dummy = new DummyWithEnumRequest
+            {
+                EnumerationKey = MyEnumeration.RD,
+                EnumValue = "fourth",
+                FirstNumber = 2000,
+                SecondNumber = 1000
             };
             var actual = dummy.GetRequestEndPoint();
             Assert.Equal(expected, actual);
@@ -58,7 +70,7 @@
         public string Dummy { get; set; }
     }
 
-    [EndpointRoute("something/?f={FirstNumber}&s={SecondNumber}&{EnumKey}={EnumValue}")]
+    [EndpointRoute("something/?f={FirstNumber}&s={SecondNumber}&{EnumerationKey}={EnumValue}")]
     public class DummyWithEnumRequest : BaseRequest
     {
         [DefaultRouteValue("1")]
@@ -67,12 +79,12 @@
         [DefaultRouteValue("100")]
         public int SecondNumber { get; set; }
 
-        public MyEnum EnumKey { get; set; }
+        public MyEnumeration EnumerationKey { get; set; }
 
         public string EnumValue { get; set; }
     }
 
-    public enum MyEnum
+    public enum MyEnumeration
     {
         [EnumRouteValue("first")]
         ST = 1,

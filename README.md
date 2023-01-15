@@ -1,14 +1,14 @@
 # GuiStracini.SDKBuilder
 
-[![Build status](https://ci.appveyor.com/api/projects/status/21n1ykfup5qpx6gy?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-sdkbuilder)
+[![Build status](https://ci.appveyor.com/api/projects/status/21n1ykfup5qpx6gy/branch/master?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-sdkbuilder)
 [![GuiStracini.SDKBuilder NuGet Version](https://img.shields.io/nuget/v/GuiStracini.SDKBuilder.svg)](https://www.nuget.org/packages/GuiStracini.SDKBuilder/)
 [![GuiStracini.SDKBuilder NuGet Downloads](https://img.shields.io/nuget/dt/GuiStracini.SDKBuilder.svg)](https://www.nuget.org/packages/GuiStracini.SDKBuilder/)
 [![Github All Releases](https://img.shields.io/github/downloads/guibranco/GuiStracini.SDKBuilder/total.svg?style=flat)](https://github.com/guibranco/GuiStracini.SDKBuilder)
-![Last release](https://img.shields.io/github/release-date/guibranco/guistracini.sdkbuilder.svg?style=flat)
+[![Last release](https://img.shields.io/github/release-date/guibranco/guistracini.sdkbuilder.svg?style=flat)](https://github.com/guibranco/GuiStracini.SDKBuilder/releases)
 
 A SDK framework that helps create a C# SDK project for consuming a generic REST API
 
-<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/master/GuiStracini.SDKBuilder.png" alt="GuiStracini.SDKBuilder" width="150" height="150">
+<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/master/logo.png" alt="GuiStracini.SDKBuilder" width="150" height="150">
 
 ---
 
