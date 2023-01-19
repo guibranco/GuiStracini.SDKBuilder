@@ -1,4 +1,17 @@
-﻿namespace GuiStracini.SDKBuilder
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.SDKBuilder
+// Author           : Guilherme Branco Stracini
+// Created          : 14/01/2023
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 15/01/2023
+// ***********************************************************************
+// <copyright file="RequestHelpers.cs" company="Guilherme Branco Stracini">
+//     © 2019 - 2023 Guilherme Branco Stracini. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.SDKBuilder
 {
     using GoodPractices;
     using Newtonsoft.Json;
@@ -17,7 +30,7 @@
         /// Gets the request end point attribute.
         /// </summary>
         /// <param name="request">The request.</param>
-        /// <returns></returns>
+        /// <returns>EndpointRouteAttribute.</returns>
         public static EndpointRouteAttribute GetRequestEndPointAttribute(this BaseRequest request)
         {
             if (
@@ -37,8 +50,8 @@
         /// </summary>
         /// <param name="request">The request.</param>
         /// <returns>String.</returns>
-        /// <exception cref="RequestEndpointBadFormatException"></exception>
-        /// <exception cref="InvalidRequestEndpointException"></exception>
+        /// <exception cref="GuiStracini.SDKBuilder.GoodPractices.RequestEndpointBadFormatException"></exception>
+        /// <exception cref="GuiStracini.SDKBuilder.GoodPractices.InvalidRequestEndpointException"></exception>
         public static string GetRequestEndPoint(this BaseRequest request)
         {
             var type = request.GetType();

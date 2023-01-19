@@ -2,12 +2,6 @@
   "version": 1,
   "dependencies": {
     ".NETStandard,Version=v2.0": {
-      "CSharpier.MsBuild": {
-        "type": "Direct",
-        "requested": "[0.21.0, )",
-        "resolved": "0.21.0",
-        "contentHash": "D+FDf6+QUCxls4HeOm0hGdAZN1MtKId7Rs/H7fLCPn9DsglkCYayxrTvABoOWHkLxx6GXrvPr9uYhUydsDp+lA=="
-      },
       "NETStandard.Library": {
         "type": "Direct",
         "requested": "[2.0.3, )",
@@ -44,12 +38,6 @@
       }
     },
     ".NETStandard,Version=v2.1": {
-      "CSharpier.MsBuild": {
-        "type": "Direct",
-        "requested": "[0.21.0, )",
-        "resolved": "0.21.0",
-        "contentHash": "D+FDf6+QUCxls4HeOm0hGdAZN1MtKId7Rs/H7fLCPn9DsglkCYayxrTvABoOWHkLxx6GXrvPr9uYhUydsDp+lA=="
-      },
       "Newtonsoft.Json": {
         "type": "Direct",
         "requested": "[13.0.2, )",

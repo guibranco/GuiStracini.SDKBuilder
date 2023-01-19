@@ -1,4 +1,17 @@
-﻿namespace GuiStracini.SDKBuilder.UnitTests
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.SDKBuilder.UnitTests
+// Author           : Guilherme Branco Stracini
+// Created          : 14/01/2023
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 15/01/2023
+// ***********************************************************************
+// <copyright file="RequestHelpersTests.cs" company="GuiStracini.SDKBuilder.UnitTests">
+//     Copyright (c) Guilherme Branco Stracini ME. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.SDKBuilder.UnitTests
 {
     using Routing;
     using Xunit;
@@ -48,6 +61,9 @@
             Assert.Equal(expected, actual);
         }
 
+        /// <summary>
+        /// Defines the test method RequestParametersDefaultValueOverride.
+        /// </summary>
         [Fact]
         public void RequestParametersDefaultValueOverride()
         {
@@ -64,34 +80,76 @@
         }
     }
 
+    /// <summary>
+    /// Class DummyRequest.
+    /// Implements the <see cref="GuiStracini.SDKBuilder.BaseRequest" />
+    /// </summary>
+    /// <seealso cref="GuiStracini.SDKBuilder.BaseRequest" />
     [EndpointRoute("something/{Dummy}")]
     public class DummyRequest : BaseRequest
     {
+        /// <summary>
+        /// Gets or sets the dummy.
+        /// </summary>
+        /// <value>The dummy.</value>
         public string Dummy { get; set; }
     }
 
+    /// <summary>
+    /// Class DummyWithEnumRequest.
+    /// Implements the <see cref="GuiStracini.SDKBuilder.BaseRequest" />
+    /// </summary>
+    /// <seealso cref="GuiStracini.SDKBuilder.BaseRequest" />
     [EndpointRoute("something/?f={FirstNumber}&s={SecondNumber}&{EnumerationKey}={EnumValue}")]
     public class DummyWithEnumRequest : BaseRequest
     {
+        /// <summary>
+        /// Gets or sets the first number.
+        /// </summary>
+        /// <value>The first number.</value>
         [DefaultRouteValue("1")]
         public int FirstNumber { get; set; }
 
+        /// <summary>
+        /// Gets or sets the second number.
+        /// </summary>
+        /// <value>The second number.</value>
         [DefaultRouteValue("100")]
         public int SecondNumber { get; set; }
 
+        /// <summary>
+        /// Gets or sets the enumeration key.
+        /// </summary>
+        /// <value>The enumeration key.</value>
         public MyEnumeration EnumerationKey { get; set; }
 
+        /// <summary>
+        /// Gets or sets the enum value.
+        /// </summary>
+        /// <value>The enum value.</value>
         public string EnumValue { get; set; }
     }
 
+    /// <summary>
+    /// Enum MyEnumeration
+    /// </summary>
     public enum MyEnumeration
     {
+        /// <summary>
+        /// The st
+        /// </summary>
         [EnumRouteValue("first")]
         ST = 1,
 
+        /// <summary>
+        /// The nd
+        /// </summary>
         [EnumRouteValue("second")]
         ND = 2,
 
+        /// <summary>
+        /// The rd
+        /// </summary>
         [EnumRouteValue("third")]
         RD = 3
     }

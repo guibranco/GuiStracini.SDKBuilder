@@ -8,12 +8,6 @@
         "resolved": "3.2.0",
         "contentHash": "lu/eJJpqJb4qy3BGPtDD/LI5RSOwXYYyRErTyaG0OTP69llzVK3FEe74hBQx0JtLUTLEVBfERV4uGYcE1Br2sg=="
       },
-      "CSharpier.MsBuild": {
-        "type": "Direct",
-        "requested": "[0.21.0, )",
-        "resolved": "0.21.0",
-        "contentHash": "D+FDf6+QUCxls4HeOm0hGdAZN1MtKId7Rs/H7fLCPn9DsglkCYayxrTvABoOWHkLxx6GXrvPr9uYhUydsDp+lA=="
-      },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
         "requested": "[17.4.1, )",

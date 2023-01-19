@@ -1,4 +1,17 @@
-﻿namespace GuiStracini.SDKBuilder.Routing
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.SDKBuilder
+// Author           : Guilherme Branco Stracini
+// Created          : 14/01/2023
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 15/01/2023
+// ***********************************************************************
+// <copyright file="EndpointRouteAttribute.cs" company="Guilherme Branco Stracini">
+//     © 2019 - 2023 Guilherme Branco Stracini. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.SDKBuilder.Routing
 {
     using System;
 
@@ -12,7 +25,7 @@
         #region ~Ctor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EndpointRouteAttribute"/> class.
+        /// Initializes a new instance of the <see cref="EndpointRouteAttribute" /> class.
         /// </summary>
         /// <param name="endPoint">The end point path of the request.</param>
         public EndpointRouteAttribute(string endPoint)
