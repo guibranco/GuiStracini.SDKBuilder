@@ -1,20 +1,28 @@
-﻿namespace GuiStracini.SDKBuilder
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.SDKBuilder
+// Author           : Guilherme Branco Stracini
+// Created          : 14/01/2023
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 15/01/2023
+// ***********************************************************************
+// <copyright file="ServiceFactory.cs" company="Guilherme Branco Stracini">
+//     © 2019 - 2023 Guilherme Branco Stracini. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.SDKBuilder
 {
     using System.Threading;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Class ServiceFactory.
+    /// Implements the <see cref="GuiStracini.SDKBuilder.IServiceFactory" />
+    /// </summary>
+    /// <seealso cref="GuiStracini.SDKBuilder.IServiceFactory" />
     public class ServiceFactory : IServiceFactory
     {
-        #region Private fields
-
-
-        #endregion
-
-        #region ~Ctors
-
-
-        #endregion
-
         #region Private methods
 
         /// <summary>
@@ -25,7 +33,7 @@
         /// <param name="method">The method.</param>
         /// <param name="requestObject">The request object.</param>
         /// <param name="cancellationToken">The cancellationToken.</param>
-        /// <returns></returns>
+        /// <returns>A Task&lt;TOut&gt; representing the asynchronous operation.</returns>
         private static async Task<TOut> ExecuteAsync<TIn, TOut>(
             ActionMethod method,
             TIn requestObject,

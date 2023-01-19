@@ -1,4 +1,17 @@
-﻿namespace GuiStracini.SDKBuilder.Routing
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.SDKBuilder
+// Author           : Guilherme Branco Stracini
+// Created          : 14/01/2023
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 15/01/2023
+// ***********************************************************************
+// <copyright file="EnumRouteValueAttribute.cs" company="Guilherme Branco Stracini">
+//     © 2019 - 2023 Guilherme Branco Stracini. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.SDKBuilder.Routing
 {
     using System;
 
@@ -13,13 +26,11 @@
         /// <summary>
         /// Gets the route value.
         /// </summary>
-        /// <value>
-        /// The route value.
-        /// </value>
+        /// <value>The route value.</value>
         public string RouteValue { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EnumRouteValueAttribute"/> class.
+        /// Initializes a new instance of the <see cref="EnumRouteValueAttribute" /> class.
         /// </summary>
         /// <param name="routeValue">The route value.</param>
         public EnumRouteValueAttribute(string routeValue)
