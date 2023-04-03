@@ -19,6 +19,9 @@ A SDK framework that helps create a C# SDK project for consuming a generic REST 
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/572455795b584087bd465974d2dce1a4)](https://www.codacy.com/gh/guibranco/GuiStracini.SDKBuilder/dashboard?utm_source=github.com&utm_medium=referral&utm_content=guibranco/GuiStracini.SDKBuilder&utm_campaign=Badge_Coverage)
 [![codecov](https://codecov.io/gh/guibranco/GuiStracini.SDKBuilder/branch/main/graph/badge.svg?token=pFvFFTF2bb)](https://codecov.io/gh/guibranco/GuiStracini.SDKBuilder)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/d7b77d89ee8537b8780a/maintainability)](https://codeclimate.com/github/guibranco/GuiStracini.SDKBuilder/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d7b77d89ee8537b8780a/test_coverage)](https://codeclimate.com/github/guibranco/GuiStracini.SDKBuilder/test_coverage)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder)
 
