@@ -62,10 +62,4 @@ The ServiceFactory class implements the IServiceFactory interface, having the me
 ## Creating a new SDK
 
 To create a new SDK, first acquire the API endpoints, the objects (in out) properties and the authorization flow.
-**Currently, this package only supports basic authorization** (via HTTP headers, or JWT-like. OAuth/OAuth2 is not supported by default, but can be implemented by yourself or in a future version, let me know - via PR - if you make some progress on that!)
-
----
-
-## TODO
-
-Implement the missing methods
+**Currently, this package only supports basic authorization** (via HTTP headers, or JWT-like. OAuth/OAuth2 is not supported by default, but can be implemented by yourself or in a future version, let me know - via PR - if you make some progress on that!).
