@@ -17,7 +17,9 @@ A SDK framework that helps create a C# SDK project for consuming a generic REST 
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/572455795b584087bd465974d2dce1a4)](https://www.codacy.com/gh/guibranco/GuiStracini.SDKBuilder/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.SDKBuilder&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/572455795b584087bd465974d2dce1a4)](https://www.codacy.com/gh/guibranco/GuiStracini.SDKBuilder/dashboard?utm_source=github.com&utm_medium=referral&utm_content=guibranco/GuiStracini.SDKBuilder&utm_campaign=Badge_Coverage)
+
 [![codecov](https://codecov.io/gh/guibranco/GuiStracini.SDKBuilder/branch/main/graph/badge.svg?token=pFvFFTF2bb)](https://codecov.io/gh/guibranco/GuiStracini.SDKBuilder)
+[![CodeFactor](https://www.codefactor.io/repository/github/guibranco/GuiStracini.SDKBuilder/badge)](https://www.codefactor.io/repository/github/guibranco/GuiStracini.SDKBuilder)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7b77d89ee8537b8780a/maintainability)](https://codeclimate.com/github/guibranco/GuiStracini.SDKBuilder/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d7b77d89ee8537b8780a/test_coverage)](https://codeclimate.com/github/guibranco/GuiStracini.SDKBuilder/test_coverage)
