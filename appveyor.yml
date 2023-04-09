@@ -83,7 +83,7 @@ artifacts:
 - path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.zip
   name: ZipFile
 
-- path:  $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.nupkg
+- path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.nupkg
   name: Package
 
 - path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.Coverage.zip
