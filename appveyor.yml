@@ -1,8 +1,8 @@
 version: 3.0.{build}
 skip_tags: true
-image: Visual Studio 2019
+image: Visual Studio 2022
 configuration: Release
-  
+
 environment:
  SOLUTION_NAME: GuiStracini.SDKBuilder
  SONAR_TOKEN: 
@@ -14,7 +14,7 @@ environment:
  CODECLIMATE_TOKEN:
   secure: 4cgJ/Uzegx3b8kOg1f1Ql1JX3Y6C1Z+HA2DMPT7XMOlzm2kG9Syb61hfdicSg4DGAK254LyT1bWxCtQ/7wkP6cxnAd/wsp7vHa2acFo6m60=
 
-dotnet_csproj: 
+dotnet_csproj:
   patch: true
   file: '**\*.csproj'
   version: '{version}'
@@ -22,7 +22,7 @@ dotnet_csproj:
   assembly_version: '{version}'
   file_version: '{version}'
   informational_version: '{version}'
-  
+
 init:
 - SET JAVA_HOME=C:\Program Files\Java\jdk19
 - SET PATH=%JAVA_HOME%\bin;%PATH%
@@ -46,22 +46,22 @@ build:
 build_script:
 - ps: $Params =  "/k:`"$env:SONAR_PROJECT`"", "/o:`"$env:SONAR_ORGANIZATION`"", "/v:`"$env:APPVEYOR_BUILD_NUMBER`""
 - ps: $Params += "/d:sonar.host.url=`"https://sonarcloud.io`"", "/d:sonar.login=`"$env:SONAR_TOKEN`""
-- ps: $Params += "/d:sonar.exclusions=`"**/bin/**/*,**/obj/**/*`"", "/d:sonar.coverage.exclusions=`"**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs`""
-- ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"$env:CD\Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
+- ps: $Params += "/d:sonar.exclusions=`"**/bin/**/*,**/obj/**/*`"", "/d:sonar.coverage.exclusions=`"**/$env:SOLUTION_NAME.UnitTests/**,**/*Tests.cs`""
+- ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"$env:CD\Tests\$env:SOLUTION_NAME.UnitTests\coverage.opencover.xml`""
 - ps: if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.branch.name=`"$env:APPVEYOR_REPO_BRANCH`"" }
 - ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER" }
 - ps: Start-process "dotnet" "sonarscanner begin $($Params -join ' ')"
 - codeclimate-test-reporter before-build
 - dotnet build %SOLUTION_NAME%.sln
-- dotnet test .\Tests\%SOLUTION_NAME%.Tests\%SOLUTION_NAME%.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura"
-- dotnet test .\Tests\%SOLUTION_NAME%.Tests\%SOLUTION_NAME%.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="lcov"
-- dotnet test .\Tests\%SOLUTION_NAME%.Tests\%SOLUTION_NAME%.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="opencover"
-- codeclimate-test-reporter format-coverage -t lcov -o "%CD%\Tests\%SOLUTION_NAME%.Tests\code-climate.json" "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.info"
-- codeclimate-test-reporter upload-coverage -i "%CD%\Tests\%SOLUTION_NAME%.Tests\code-climate.json" -r %CODECLIMATE_TOKEN%
-- codecov -f "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
-- java -jar ./codacy-test-reporter.jar report -l CSharp -t %CODACY_PROJECT_TOKEN% -r "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
+- dotnet test .\Tests\%SOLUTION_NAME%.UnitTests\%SOLUTION_NAME%.UnitTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura"
+- dotnet test .\Tests\%SOLUTION_NAME%.UnitTests\%SOLUTION_NAME%.UnitTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="lcov"
+- dotnet test .\Tests\%SOLUTION_NAME%.UnitTests\%SOLUTION_NAME%.UnitTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat="opencover"
+- codeclimate-test-reporter format-coverage -t lcov -o "%CD%\Tests\%SOLUTION_NAME%.UnitTests\code-climate.json" "%CD%\Tests\%SOLUTION_NAME%.UnitTests\coverage.info"
+- codeclimate-test-reporter upload-coverage -i "%CD%\Tests\%SOLUTION_NAME%.UnitTests\code-climate.json" -r %CODECLIMATE_TOKEN%
+- codecov -f "%CD%\Tests\%SOLUTION_NAME%.UnitTests\coverage.opencover.xml"
+- java -jar ./codacy-test-reporter.jar report -l CSharp -t %CODACY_PROJECT_TOKEN% -r "%CD%\Tests\%SOLUTION_NAME%.UnitTests\coverage.opencover.xml"
 - dotnet sonarscanner end /d:sonar.login="%SONAR_TOKEN%"
- 
+
 after_build:
 - xcopy %CD%\Src\%SOLUTION_NAME%\bin\Release\netstandard2.0\*.* %CD%\Build\
 
@@ -81,20 +81,20 @@ after_build:
 artifacts:
 - path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.zip
   name: ZipFile
-  
+
 - path:  $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.nupkg
   name: Package
-  
+
 - path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.Coverage.zip
   name: Coverage
-  
+
 deploy:
 - provider: Environment
   name: NuGet
   on:
    branch: main
   artifact: Package
-  
+
 - provider: GitHub
   on:
    branch: main
@@ -102,7 +102,7 @@ deploy:
   auth_token: $(GITHUB_TOKEN)
   force_update: true
   artifact: ZipFile
-  
+
 - provider: GitHub
   on:
    branch: main
