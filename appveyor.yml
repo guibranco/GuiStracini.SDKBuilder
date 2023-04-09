@@ -41,7 +41,7 @@ build:
   publish_nuget: true
   include_nuget_references: true
   parallel: true
-  verbosity: normal
+  verbosity: detailed
 
 build_script:
 - ps: $Params =  "/k:`"$env:SONAR_PROJECT`"", "/o:`"$env:SONAR_ORGANIZATION`"", "/v:`"$env:APPVEYOR_BUILD_NUMBER`""
