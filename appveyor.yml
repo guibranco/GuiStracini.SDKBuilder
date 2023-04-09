@@ -6,9 +6,9 @@ configuration: Release
 environment:
  SOLUTION_NAME: GuiStracini.SDKBuilder
  SONAR_TOKEN: 
-   secure: ve2nGKxIC9PB2BCgCyvPduxTjXDnzrk+YBJyw49LoRCADgQ0MrKIqM4b5daFxqAC
+  secure: ve2nGKxIC9PB2BCgCyvPduxTjXDnzrk+YBJyw49LoRCADgQ0MrKIqM4b5daFxqAC
  GITHUB_TOKEN:
-   secure: AD1z81FqZlvGkCEyDzJ3g6sIJ93ecUE9EuqfUxc4CMiFGW139pWZk+/huuTY5jzG
+  secure: AD1z81FqZlvGkCEyDzJ3g6sIJ93ecUE9EuqfUxc4CMiFGW139pWZk+/huuTY5jzG
  CODACY_PROJECT_TOKEN:
   secure: rI95hpNbtpydyhYHYyp+2/bKjTZO99rZSDUOL36R4wsGvvX52FN98XGHVhslYI6R
  CODECLIMATE_TOKEN:
