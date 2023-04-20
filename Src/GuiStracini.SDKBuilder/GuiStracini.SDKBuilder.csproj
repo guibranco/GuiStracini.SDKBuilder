@@ -5,7 +5,7 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <Authors>Guilherme Branco Stracini</Authors>
+    <Authors>Guilherme Branco Stracini</Authors>
     <Copyright>© 2019 - 2023 Guilherme Branco Stracini. All rights reserved.</Copyright>
     <Description>A SDK framework that helps create a C# SDK project for consuming a generic REST API based on Microsoft WebAPI 2 conventions</Description>    
     <PackageProjectUrl>https://guibranco.github.io/GuiStracini.SDKBuilder/</PackageProjectUrl>
@@ -17,6 +17,7 @@
     <Version>1.0.0</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,5 +28,6 @@
   <ItemGroup>
     <None Include="../../LICENSE" Pack="true" PackagePath="\" />
     <None Include="../../logo.png" Pack="true" PackagePath="\" />
+    <None Include="../../readme.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
