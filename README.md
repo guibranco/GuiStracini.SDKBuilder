@@ -5,19 +5,24 @@ A SDK framework that helps create a C# SDK project for consuming a generic REST 
 [![GitHub license](https://img.shields.io/github/license/guibranco/GuiStracini.SDKBuilder)](https://github.com/guibranco/GuiStracini.SDKBuilder)
 [![Time tracker](https://wakatime.com/badge/github/guibranco/GuiStracini.SDKBuilder.svg)](https://wakatime.com/badge/github/guibranco/GuiStracini.SDKBuilder)
 
-<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/master/logo.png" alt="GuiStracini.SDKBuilder" width="150" height="150">
+<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/main/logo.png" alt="GuiStracini.SDKBuilder" width="150" height="150">
 
 ## CI/CD
 
 | Build status | Last commit | Tests | Coverage | Code Smells | LoC | 
 |--------------|-------------|-------|----------|-------------|-----|
-| [![Build status](https://ci.appveyor.com/api/projects/status/21n1ykfup5qpx6gy/branch/master?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-sdkbuilder/branch/master) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.SDKBuilder/master)](https://github.com/guibranco/GuiStracini.SDKBuilder) | ![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/guistracini-sdkbuilder/master?compact_message) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=coverage&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=code_smells&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=ncloc&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | 
+| [![Build status](https://ci.appveyor.com/api/projects/status/21n1ykfup5qpx6gy/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-sdkbuilder/branch/main) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.SDKBuilder/main)](https://github.com/guibranco/GuiStracini.SDKBuilder) | ![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/guistracini-sdkbuilder/main?compact_message) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=coverage&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=code_smells&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=ncloc&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | 
 
-## Code Quality (master branch)
+## Code Quality
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/572455795b584087bd465974d2dce1a4)](https://www.codacy.com/gh/guibranco/GuiStracini.SDKBuilder/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.SDKBuilder&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/572455795b584087bd465974d2dce1a4)](https://www.codacy.com/gh/guibranco/GuiStracini.SDKBuilder/dashboard?utm_source=github.com&utm_medium=referral&utm_content=guibranco/GuiStracini.SDKBuilder&utm_campaign=Badge_Coverage)
-[![codecov](https://codecov.io/gh/guibranco/GuiStracini.SDKBuilder/branch/master/graph/badge.svg?token=pFvFFTF2bb)](https://codecov.io/gh/guibranco/GuiStracini.SDKBuilder)
+
+[![codecov](https://codecov.io/gh/guibranco/GuiStracini.SDKBuilder/branch/main/graph/badge.svg?token=pFvFFTF2bb)](https://codecov.io/gh/guibranco/GuiStracini.SDKBuilder)
+[![CodeFactor](https://www.codefactor.io/repository/github/guibranco/GuiStracini.SDKBuilder/badge)](https://www.codefactor.io/repository/github/guibranco/GuiStracini.SDKBuilder)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/d7b77d89ee8537b8780a/maintainability)](https://codeclimate.com/github/guibranco/GuiStracini.SDKBuilder/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d7b77d89ee8537b8780a/test_coverage)](https://codeclimate.com/github/guibranco/GuiStracini.SDKBuilder/test_coverage)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder)
@@ -59,10 +64,4 @@ The ServiceFactory class implements the IServiceFactory interface, having the me
 ## Creating a new SDK
 
 To create a new SDK, first acquire the API endpoints, the objects (in out) properties and the authorization flow.
-**Currently, this package only supports basic authorization** (via HTTP headers, or JWT-like. OAuth/OAuth2 is not supported by default, but can be implemented by yourself or in a future version, let me know - via PR - if you make some progress on that!)
-
----
-
-## TODO
-
-Implement the missing methods
+**Currently, this package only supports basic authorization** (via HTTP headers, or JWT-like. OAuth/OAuth2 is not supported by default, but can be implemented by yourself or in a future version, let me know - via PR - if you make some progress on that!).
