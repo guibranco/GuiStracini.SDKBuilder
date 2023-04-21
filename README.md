@@ -5,7 +5,7 @@ A SDK framework that helps create a C# SDK project for consuming a generic REST 
 [![GitHub license](https://img.shields.io/github/license/guibranco/GuiStracini.SDKBuilder)](https://github.com/guibranco/GuiStracini.SDKBuilder)
 [![Time tracker](https://wakatime.com/badge/github/guibranco/GuiStracini.SDKBuilder.svg)](https://wakatime.com/badge/github/guibranco/GuiStracini.SDKBuilder)
 
-<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/main/logo.png" alt="GuiStracini.SDKBuilder" width="150" height="150">
+![GuiStracini.SDKBuilder logo](logo.png)
 
 ## CI/CD
 
