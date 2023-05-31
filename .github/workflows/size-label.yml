@@ -1,11 +1,16 @@
 name: Label based on PR size
+
 on:
-  pull_request
+  pull_request:
+  workflow_dispatch:
+
 jobs:
   size-label:
+    permissions: write-all
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
+
     steps:
+
       - name: size-label
         uses: "pascalgn/size-label-action@v0.4.3"
         env:
