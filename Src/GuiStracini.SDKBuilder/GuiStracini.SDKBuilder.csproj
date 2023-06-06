@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/guibranco/GuiStracini.SDKBuilder</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>api wrapper sdk C# builder factory webapi conventions</PackageTags>
-    <PackageIconUrl>https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/master/logo.png?v=1</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/guibranco/GuiStracini.SDKBuilder/main/logo.png?v=1</PackageIconUrl>
     <PackageIcon>logo.png</PackageIcon>
     <Version>1.0.0</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
