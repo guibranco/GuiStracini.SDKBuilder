@@ -1,6 +1,6 @@
 # GuiStracini.SDKBuilder
 
-A SDK framework that helps create a C# SDK project for consuming a generic REST API
+An SDK framework that helps create a C# SDK project for consuming a generic REST API
 
 [![GitHub license](https://img.shields.io/github/license/guibranco/GuiStracini.SDKBuilder)](https://github.com/guibranco/GuiStracini.SDKBuilder)
 [![Time tracker](https://wakatime.com/badge/github/guibranco/GuiStracini.SDKBuilder.svg)](https://wakatime.com/badge/github/guibranco/GuiStracini.SDKBuilder)
@@ -11,7 +11,7 @@ A SDK framework that helps create a C# SDK project for consuming a generic REST 
 
 | Build status | Last commit | Tests | Coverage | Code Smells | LoC | 
 |--------------|-------------|-------|----------|-------------|-----|
-| [![Build status](https://ci.appveyor.com/api/projects/status/21n1ykfup5qpx6gy/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-sdkbuilder/branch/main) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.SDKBuilder/main)](https://github.com/guibranco/GuiStracini.SDKBuilder) | ![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/guistracini-sdkbuilder/main?compact_message) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=coverage&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=code_smells&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=ncloc&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | 
+| [![Build status](https://ci.appveyor.com/api/projects/status/21n1ykfup5qpx6gy/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-sdkbuilder/branch/main) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.SDKBuilder/main)](https://github.com/guibranco/GuiStracini.SDKBuilder) | [![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/guistracini-sdkbuilder/main?compact_message)](https://ci.appveyor.com/project/guibranco/guistracini-sdkbuilder/branch/main/tests) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=coverage&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=code_smells&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=ncloc&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder) | 
 
 ## Code Quality
 
@@ -55,13 +55,14 @@ Download the latest zip file from the [Release](https://github.com/GuiBranco/Gui
 ---
 
 ```
-This package allows the easy creation of a SDK (Sofware Development Kit) for consuming a REST API based on WebAPI2 conventions.
-The ServiceFactory class implements the IServiceFactory interface, having the methods Get, Post, Put, Delete, Head and Upload and uses a self convetion and custom attributes to generate smart endpoints and do requests.
+This package allows the easy creation of an SDK (Sofware Development Kit) for consuming a REST API based on WebAPI2 conventions.
+The ServiceFactory class implements the IServiceFactory interface, having the methods Get, Post, Put, Delete, Head, and Upload, and uses a self-convention and custom attributes to generate smart endpoints and do requests.
 ```
 
 ---
 
 ## Creating a new SDK
 
-To create a new SDK, first acquire the API endpoints, the objects (in out) properties and the authorization flow.
+To create a new SDK, first acquire the API endpoints, the objects (in-out) properties, and the authorization flow.
+
 **Currently, this package only supports basic authorization** (via HTTP headers, or JWT-like. OAuth/OAuth2 is not supported by default, but can be implemented by yourself or in a future version, let me know - via PR - if you make some progress on that!).
