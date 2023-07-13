@@ -110,4 +110,3 @@ deploy:
   auth_token: $(GITHUB_TOKEN)
   force_update: true
   artifact: ZipFile, Coverage
-  
