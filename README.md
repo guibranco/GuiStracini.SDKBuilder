@@ -38,6 +38,8 @@ An SDK framework that helps create a C# SDK project for consuming a generic REST
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=bugs)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.SDKBuilder&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.SDKBuilder)
 
+[![DeepSource](https://app.deepsource.com/gh/guibranco/GuiStracini.SDKBuilder.svg/?label=active+issues&show_trend=true&token=SUN_b7NV-uOGUMWnxFFFUFb9)](https://app.deepsource.com/gh/guibranco/GuiStracini.SDKBuilder/?ref=repository-badge)
+
 ---
 
 ## Installation
