@@ -10,6 +10,8 @@ environment:
   secure: rI95hpNbtpydyhYHYyp+2/bKjTZO99rZSDUOL36R4wsGvvX52FN98XGHVhslYI6R
  CODECLIMATE_TOKEN:
   secure: 4cgJ/Uzegx3b8kOg1f1Ql1JX3Y6C1Z+HA2DMPT7XMOlzm2kG9Syb61hfdicSg4DGAK254LyT1bWxCtQ/7wkP6cxnAd/wsp7vHa2acFo6m60=
+ DEEPSOURCE_TOKEN:
+  secure: vYnQ+gNbB9g2kZ3qQZZ/cOy3TDznmWiuW67xQkeZzh54WeimedTq0uFFh0SL04hxHDVt84ojaMXNcFmdlGoezQ==
 
 dotnet_csproj:
   patch: true
@@ -36,6 +38,7 @@ before_build:
 - cmd: choco install codecov
 - cmd: curl -L https://github.com/codacy/codacy-coverage-reporter/releases/latest/download/codacy-coverage-reporter-assembly.jar > ./codacy-test-reporter.jar
 - cmd: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-windows-amd64 > codeclimate-test-reporter.exe
+- cmd: curl https://deepsource.io/cli | sh
 - cmd: dotnet tool install --global dotnet-sonarscanner
 
 build:
@@ -66,6 +69,7 @@ build_script:
         }
     }
 - if %LOCAL_PR% EQU 1 codecov -f "Tests\%SOLUTION_NAME%.UnitTests\coverage.opencover.xml"
+- if %LOCAL_PR% EQU 1 ./bin/deepsource report --analyzer test-coverage --key csharp --value-file "Tests\%SOLUTION_NAME%.UnitTests\coverage.opencover.xml"
 - if %LOCAL_PR% EQU 1 codeclimate-test-reporter format-coverage -t lcov -o "Tests\%SOLUTION_NAME%.UnitTests\code-climate.json" "Tests\%SOLUTION_NAME%.UnitTests\coverage.info"
 - if %LOCAL_PR% EQU 1 codeclimate-test-reporter upload-coverage -i "Tests\%SOLUTION_NAME%.UnitTests\code-climate.json" -r %CODECLIMATE_TOKEN%
 - if %LOCAL_PR% EQU 1 java -jar ./codacy-test-reporter.jar report -l CSharp -t %CODACY_PROJECT_TOKEN% -r "Tests\%SOLUTION_NAME%.UnitTests\coverage.opencover.xml"
