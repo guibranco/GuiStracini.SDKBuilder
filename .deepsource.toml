@@ -4,4 +4,5 @@ version = 1
 name = "csharp"
 
 [[analyzers]]
-name = "shell"
+name = "test-coverage"
+enabled = true
