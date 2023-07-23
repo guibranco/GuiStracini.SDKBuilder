@@ -15,6 +15,8 @@ An SDK framework that helps create a C# SDK project for consuming a generic REST
 
 ## Code Quality
 
+[![DeepSource](https://app.deepsource.com/gh/guibranco/GuiStracini.SDKBuilder.svg/?label=active+issues&show_trend=true&token=SUN_b7NV-uOGUMWnxFFFUFb9)](https://app.deepsource.com/gh/guibranco/GuiStracini.SDKBuilder/?ref=repository-badge)
+
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/572455795b584087bd465974d2dce1a4)](https://www.codacy.com/gh/guibranco/GuiStracini.SDKBuilder/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.SDKBuilder&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/572455795b584087bd465974d2dce1a4)](https://www.codacy.com/gh/guibranco/GuiStracini.SDKBuilder/dashboard?utm_source=github.com&utm_medium=referral&utm_content=guibranco/GuiStracini.SDKBuilder&utm_campaign=Badge_Coverage)
 
