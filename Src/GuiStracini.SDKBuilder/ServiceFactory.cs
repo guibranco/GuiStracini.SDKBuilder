@@ -38,7 +38,8 @@ namespace GuiStracini.SDKBuilder
             ActionMethod method,
             TIn requestObject,
             CancellationToken cancellationToken
-        ) where TIn : BaseRequest
+        )
+            where TIn : BaseRequest
         {
             cancellationToken.ThrowIfCancellationRequested();
             await Task.Delay(1000, cancellationToken);

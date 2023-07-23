@@ -42,6 +42,7 @@ namespace GuiStracini.SDKBuilder.GoodPractices
         protected RequestEndpointBadFormatException(
             SerializationInfo info,
             StreamingContext context
-        ) : base(info, context) { }
+        )
+            : base(info, context) { }
     }
 }
