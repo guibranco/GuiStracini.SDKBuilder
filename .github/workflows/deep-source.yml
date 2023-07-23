@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
-      
+
       - name: Build and analyze
         env:
           DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
