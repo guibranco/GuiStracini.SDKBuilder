@@ -13,13 +13,13 @@
 // ***********************************************************************
 namespace GuiStracini.SDKBuilder
 {
-    using GoodPractices;
-    using Newtonsoft.Json;
-    using Routing;
     using System;
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
+    using GoodPractices;
+    using Newtonsoft.Json;
+    using Routing;
 
     /// <summary>
     /// Class Extensions.
