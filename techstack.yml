@@ -1,8 +1,8 @@
 repo_name: guibranco/GuiStracini.SDKBuilder
-report_id: 96bc30885f64cbe11fa330aab7b6e2a4
+report_id: 54dfaa7b38ecd7e91ef9e0bc1bd62178
 repo_type: Public
-timestamp: '2023-11-09T16:51:45+00:00'
-requested_by: guibranco
+timestamp: '2023-12-14T09:38:09+00:00'
+requested_by: dependabot[bot]
 provider: github
 branch: main
 detected_tools_count: 10
@@ -29,7 +29,7 @@ tools:
   image_url: https://img.stackshare.io/service/1014/IoPy1dce_400x400.png
   detection_source: Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   last_updated_by: dependabot[bot]
-  last_updated_on: 2023-09-04 03:13:50.000000000 Z
+  last_updated_on: 2023-11-13 03:56:41.000000000 Z
 - name: ".NET Core"
   description: An Open Source, General-Purpose Development Platform Maintained by
     Microsoft and the .NET Community
@@ -41,10 +41,10 @@ tools:
   category: Languages & Frameworks
   sub_category: Frameworks (Full Stack)
   image_url: https://img.stackshare.io/service/6403/default_91fc1f0ee315262794273aa1387eaf8fed8436e6.png
-  detection_source_url: Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder/blob/main/Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   detection_source: Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   last_updated_by: dependabot[bot]
-  last_updated_on: 2023-09-04 03:13:50.000000000 Z
+  last_updated_on: 2023-11-13 03:56:41.000000000 Z
 - name: ASP.NET Core
   description: A cross-platform .NET framework for building modern cloud-based web
     applications on Windows, Mac, or Linux
@@ -56,10 +56,10 @@ tools:
   category: Languages & Frameworks
   sub_category: Frameworks (Full Stack)
   image_url: https://img.stackshare.io/service/11331/asp.net-core.png
-  detection_source_url: Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder/blob/main/Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   detection_source: Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   last_updated_by: dependabot[bot]
-  last_updated_on: 2023-09-04 03:13:50.000000000 Z
+  last_updated_on: 2023-11-13 03:56:41.000000000 Z
 - name: Git
   description: Fast, scalable, distributed revision control system
   website_url: http://git-scm.com/
@@ -77,9 +77,9 @@ tools:
   category: Build, Test, Deploy
   sub_category: Continuous Integration
   image_url: https://img.stackshare.io/service/11563/actions.png
-  detection_source: ".github/workflows/size-label.yml"
+  detection_source: ".github/workflows/deep-source.yml"
   last_updated_by: dependabot[bot]
-  last_updated_on: 2023-09-11 03:16:23.000000000 Z
+  last_updated_on: 2023-12-11 03:53:51.000000000 Z
 - name: NuGet
   description: The package manager for .NET
   website_url: https://www.nuget.org/
@@ -112,7 +112,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Testing Frameworks
   image_url: https://img.stackshare.io/service/3077/ca5a327feb49ddfe1f4b11548907e5a1_400x400.png
-  detection_source_url: Tests/GuiStracini.SDKBuilder.UnitTests/packages.lock.json
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder/blob/main/Tests/GuiStracini.SDKBuilder.UnitTests/packages.lock.json
   detection_source: Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   last_updated_by: Guilherme Branco Stracini
   last_updated_on: 2023-01-14 17:01:01.000000000 Z
