@@ -1,7 +1,8 @@
 repo_name: guibranco/GuiStracini.SDKBuilder
-report_id: 54dfaa7b38ecd7e91ef9e0bc1bd62178
+report_id: 96bc30885f64cbe11fa330aab7b6e2a4
+version: 0.1
 repo_type: Public
-timestamp: '2023-12-14T09:38:09+00:00'
+timestamp: '2024-01-11T12:23:47+00:00'
 requested_by: dependabot[bot]
 provider: github
 branch: main
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1015/1200px-C_Sharp_wordmark.svg.png
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder
   detection_source: Repo Metadata
 - name: ".NET"
   description: A free, cross-platform, open source developer platform for building
@@ -27,6 +29,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Frameworks (Full Stack)
   image_url: https://img.stackshare.io/service/1014/IoPy1dce_400x400.png
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder/blob/main/Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   detection_source: Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   last_updated_by: dependabot[bot]
   last_updated_on: 2023-11-13 03:56:41.000000000 Z
@@ -68,6 +71,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder
   detection_source: Repo Metadata
 - name: GitHub Actions
   description: Automate your workflow from idea to production
@@ -77,6 +81,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Continuous Integration
   image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder/blob/main/.github/workflows/deep-source.yml
   detection_source: ".github/workflows/deep-source.yml"
   last_updated_by: dependabot[bot]
   last_updated_on: 2023-12-11 03:53:51.000000000 Z
@@ -88,6 +93,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/service/2637/6I3oEOP4_400x400.jpg
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder/blob/main/Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   detection_source: Tests/GuiStracini.SDKBuilder.UnitTests/GuiStracini.SDKBuilder.UnitTests.csproj
   last_updated_by: Guilherme Branco Stracini
   last_updated_on: 2023-01-14 17:01:01.000000000 Z
@@ -100,6 +106,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Integrated Development Environment
   image_url: https://img.stackshare.io/service/1451/SR2hUhQN.png
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder/blob/main/GuiStracini.SDKBuilder.sln
   detection_source: GuiStracini.SDKBuilder.sln
   last_updated_by: Guilherme Branco Stracini
   last_updated_on: 2023-01-14 17:01:01.000000000 Z
@@ -125,4 +132,5 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source_url: https://github.com/guibranco/GuiStracini.SDKBuilder
   detection_source: Repo Metadata
