@@ -1,4 +1,4 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Assembly         : GuiStracini.SDKBuilder
 // Author           : Guilherme Branco Stracini
 // Created          : 14/01/2023
@@ -20,7 +20,6 @@ namespace GuiStracini.SDKBuilder.GoodPractices
     /// Throws when a request endpoint is in a bad format
     /// </summary>
     /// <seealso cref="System.Exception" />
-
     //TODO Rename
     [Serializable]
     public class RequestEndpointBadFormatException : Exception

@@ -1,4 +1,4 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Assembly         : GuiStracini.SDKBuilder
 // Author           : Guilherme Branco Stracini
 // Created          : 14/01/2023
@@ -86,12 +86,16 @@ namespace GuiStracini.SDKBuilder
                 var propertyValue = property.GetValue(request, null);
                 if (
                     propertyValue == null
-                    || propertyType == typeof(int) && Convert.ToInt32(propertyValue) == 0
-                    || propertyType == typeof(long) && Convert.ToInt64(propertyValue) == 0
-                    || propertyType == typeof(decimal)
+                    || (propertyType == typeof(int) && Convert.ToInt32(propertyValue) == 0)
+                    || (propertyType == typeof(long) && Convert.ToInt64(propertyValue) == 0)
+                    || (
+                        propertyType == typeof(decimal)
                         && Convert.ToDecimal(propertyValue) == new decimal(0)
-                    || propertyType == typeof(string)
+                    )
+                    || (
+                        propertyType == typeof(string)
                         && string.IsNullOrEmpty(propertyValue.ToString())
+                    )
                 )
                 {
                     var defaultValue = string.Empty;
@@ -201,8 +205,8 @@ namespace GuiStracini.SDKBuilder
                 if (
                     property.PropertyType == typeof(string)
                     || property.PropertyType == typeof(bool)
-                    || property.PropertyType == typeof(int) && Convert.ToInt32(propertyValue) > 0
-                    || property.PropertyType == typeof(long) && Convert.ToInt64(propertyValue) > 0
+                    || (property.PropertyType == typeof(int) && Convert.ToInt32(propertyValue) > 0)
+                    || (property.PropertyType == typeof(long) && Convert.ToInt64(propertyValue) > 0)
                 )
                 {
                     builder
