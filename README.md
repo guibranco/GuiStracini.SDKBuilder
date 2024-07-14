@@ -58,15 +58,13 @@ Download the latest zip file from the [Release](https://github.com/GuiBranco/Gui
 
 ---
 
-```
 This package allows the easy creation of an SDK (Sofware Development Kit) for consuming a REST API based on WebAPI2 conventions.
-The ServiceFactory class implements the IServiceFactory interface, having the methods Get, Post, Put, Delete, Head, and Upload, and uses a self-convention and custom attributes to generate smart endpoints and do requests.
-```
+The ServiceFactory class implements the IServiceFactory interface, having the methods Get, Post, Put, Delete, Head, and Upload. It uses self-convention and custom attributes to generate smart endpoints and perform requests.
 
 ---
 
 ## Creating a new SDK
 
-To create a new SDK, first acquire the API endpoints, the objects (in-out) properties, and the authorization flow.
+To create a new SDK, you must first acquire the API endpoints, the object (in-out) properties, and the authorization flow.
 
-**Currently, this package only supports basic authorization** (via HTTP headers, or JWT-like. OAuth/OAuth2 is not supported by default, but can be implemented by yourself or in a future version, let me know - via PR - if you make some progress on that!).
+**Currently, this package only supports basic authorization** (via HTTP headers or JWT-like). OAuth/OAuth2 is not supported by default but can be implemented by yourself or in a future version. Let me know—via PR—if you make some progress on that!).
