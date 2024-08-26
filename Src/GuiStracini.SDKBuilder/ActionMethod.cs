@@ -56,6 +56,6 @@ namespace GuiStracini.SDKBuilder
         /// <summary>
         /// The upload
         /// </summary>
-        UPLOAD
+        UPLOAD,
     }
 }
