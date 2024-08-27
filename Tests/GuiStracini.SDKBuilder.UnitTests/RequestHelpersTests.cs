@@ -55,7 +55,7 @@ namespace GuiStracini.SDKBuilder.UnitTests
             var dummy = new DummyWithEnumRequest
             {
                 EnumerationKey = MyEnumeration.RD,
-                EnumValue = "fourth"
+                EnumValue = "fourth",
             };
             var actual = dummy.GetRequestEndPoint();
             Assert.Equal(expected, actual);
@@ -73,7 +73,7 @@ namespace GuiStracini.SDKBuilder.UnitTests
                 EnumerationKey = MyEnumeration.RD,
                 EnumValue = "fourth",
                 FirstNumber = 2000,
-                SecondNumber = 1000
+                SecondNumber = 1000,
             };
             var actual = dummy.GetRequestEndPoint();
             Assert.Equal(expected, actual);
@@ -151,6 +151,6 @@ namespace GuiStracini.SDKBuilder.UnitTests
         /// The rd
         /// </summary>
         [EnumRouteValue("third")]
-        RD = 3
+        RD = 3,
     }
 }
