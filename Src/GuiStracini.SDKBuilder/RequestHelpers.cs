@@ -132,7 +132,7 @@ public static class RequestHelpers
                 }
                 else
                 {
-                    value = value.ToLower();
+                    value = value.ToLowerInvariant();
                 }
             }
 
