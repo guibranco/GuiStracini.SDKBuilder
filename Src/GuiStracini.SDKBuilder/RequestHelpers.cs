@@ -59,7 +59,7 @@ public static class RequestHelpers
         var endpointAttribute = request.GetRequestEndPointAttribute();
         if (endpointAttribute == null)
         {
-            return type.Name.ToUpper();
+            return type.Name.ToUpperInvariant();
         }
 
         var originalEndpoint = endpointAttribute.EndPoint;
@@ -123,7 +123,7 @@ public static class RequestHelpers
             {
                 var field = property.PropertyType.GetField(value);
                 if (
-                    field.GetCustomAttributes(typeof(EnumRouteValueAttribute), false)
+                    field?.GetCustomAttributes(typeof(EnumRouteValueAttribute), false)
                         is EnumRouteValueAttribute[] enumRouteValue
                     && enumRouteValue.Any()
                 )
@@ -189,7 +189,7 @@ public static class RequestHelpers
 
             if (property.PropertyType == typeof(bool))
             {
-                propertyValue = propertyValue.ToString().ToLower();
+                propertyValue = propertyValue.ToString()?.ToLowerInvariant();
             }
 
             var propertyName = property.Name;
