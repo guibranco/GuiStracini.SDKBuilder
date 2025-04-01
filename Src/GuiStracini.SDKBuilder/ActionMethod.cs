@@ -11,51 +11,51 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.SDKBuilder
+
+namespace GuiStracini.SDKBuilder;
+
+/// <summary>
+/// Enum ActionMethod
+/// </summary>
+public enum ActionMethod
 {
     /// <summary>
-    /// Enum ActionMethod
+    /// The head
     /// </summary>
-    public enum ActionMethod
-    {
-        /// <summary>
-        /// The head
-        /// </summary>
-        HEAD,
+    HEAD,
 
-        /// <summary>
-        /// The get
-        /// </summary>
-        GET,
+    /// <summary>
+    /// The get
+    /// </summary>
+    GET,
 
-        /// <summary>
-        /// The post
-        /// </summary>
-        POST,
+    /// <summary>
+    /// The post
+    /// </summary>
+    POST,
 
-        /// <summary>
-        /// The put
-        /// </summary>
-        PUT,
+    /// <summary>
+    /// The put
+    /// </summary>
+    PUT,
 
-        /// <summary>
-        /// The patch
-        /// </summary>
-        PATCH,
+    /// <summary>
+    /// The patch
+    /// </summary>
+    PATCH,
 
-        /// <summary>
-        /// The delete
-        /// </summary>
-        DELETE,
+    /// <summary>
+    /// The delete
+    /// </summary>
+    DELETE,
 
-        /// <summary>
-        /// The options
-        /// </summary>
-        OPTIONS,
+    /// <summary>
+    /// The options
+    /// </summary>
+    OPTIONS,
 
-        /// <summary>
-        /// The upload
-        /// </summary>
-        UPLOAD,
-    }
+    /// <summary>
+    /// The upload
+    /// </summary>
+    UPLOAD,
 }
