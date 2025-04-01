@@ -3,7 +3,7 @@
 using Routing;
 
 [EndpointRoute("something/{Dummy}")]
-public class DummyRequest : BaseRequest
+public class DummyRequest : IBaseRequest
 {
     public string Dummy { get; set; }
 }

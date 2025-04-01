@@ -3,7 +3,7 @@
 using Routing;
 
 [EndpointRoute("something/?f={FirstNumber}&s={SecondNumber}&{EnumerationKey}={EnumValue}")]
-public class DummyWithEnumRequest : BaseRequest
+public class DummyWithEnumRequest : IBaseRequest
 {
     [DefaultRouteValue("1")]
     public int FirstNumber { get; set; }

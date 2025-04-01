@@ -3,7 +3,7 @@
 using Routing;
 
 [EndpointRoute("something")]
-public class DummyWithAdditionalAsQueryStringRequest : BaseRequest
+public class DummyWithAdditionalAsQueryStringRequest : IBaseRequest
 {
     [AdditionalRouteValue(ActionMethod.GET, true)]
     public string Test { get; set; }

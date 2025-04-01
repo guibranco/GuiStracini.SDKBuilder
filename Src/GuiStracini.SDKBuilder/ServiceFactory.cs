@@ -38,7 +38,7 @@ public class ServiceFactory : IServiceFactory
         TIn requestObject,
         CancellationToken cancellationToken
     )
-        where TIn : BaseRequest
+        where TIn : IBaseRequest
     {
         cancellationToken.ThrowIfCancellationRequested();
         await Task.Delay(1000, cancellationToken);
@@ -47,74 +47,74 @@ public class ServiceFactory : IServiceFactory
 
     /// <inheritdoc />
     public async ValueTask<TIn> Head<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
+        where TIn : IBaseRequest
     {
         return await ExecuteAsync<TIn, TIn>(ActionMethod.HEAD, data, cancellationToken);
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Get<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
+        where TIn : IBaseRequest
     {
         return await Task.FromResult(data);
     }
 
     /// <inheritdoc />
     public async ValueTask<TOut> Get<TIn, TOut>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
-        where TOut : BaseResponse
+        where TIn : IBaseRequest
+        where TOut : IBaseResponse
     {
-        return await Task.FromResult((TOut)null);
+        return await Task.FromResult(default(TOut));
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Post<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
+        where TIn : IBaseRequest
     {
         return await Task.FromResult(data);
     }
 
     /// <inheritdoc />
     public async ValueTask<TOut> Post<TIn, TOut>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
-        where TOut : BaseResponse
+        where TIn : IBaseRequest
+        where TOut : IBaseResponse
     {
-        return await Task.FromResult((TOut)null);
+        return await Task.FromResult(default(TOut));
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Put<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
+        where TIn : IBaseRequest
     {
         return await Task.FromResult(data);
     }
 
     /// <inheritdoc />
     public async ValueTask<TOut> Put<TIn, TOut>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
-        where TOut : BaseResponse
+        where TIn : IBaseRequest
+        where TOut : IBaseResponse
     {
-        return await Task.FromResult((TOut)null);
+        return await Task.FromResult(default(TOut));
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Patch<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseResponse
+        where TIn : IBaseResponse
     {
         return await Task.FromResult(data);
     }
 
     /// <inheritdoc />
     public async ValueTask<TOut> Patch<TIn, TOut>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
-        where TOut : BaseResponse
+        where TIn : IBaseRequest
+        where TOut : IBaseResponse
     {
-        return await Task.FromResult((TOut)null);
+        return await Task.FromResult(default(TOut));
     }
 
     /// <inheritdoc />
     public async ValueTask<TIn> Delete<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
+        where TIn : IBaseRequest
     {
         return await Task.FromResult(data);
     }

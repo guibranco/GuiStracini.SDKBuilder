@@ -30,7 +30,7 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TIn&gt;.</returns>
     ValueTask<TIn> Head<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest;
+        where TIn : IBaseRequest;
 
     /// <summary>
     /// Gets the specified data.
@@ -40,7 +40,7 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TIn&gt;.</returns>
     ValueTask<TIn> Get<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest;
+        where TIn : IBaseRequest;
 
     /// <summary>
     /// Gets the specified data.
@@ -51,8 +51,8 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TOut&gt;.</returns>
     ValueTask<TOut> Get<TIn, TOut>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
-        where TOut : BaseResponse;
+        where TIn : IBaseRequest
+        where TOut : IBaseResponse;
 
     /// <summary>
     /// Posts the specified data.
@@ -62,7 +62,7 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TIn&gt;.</returns>
     ValueTask<TIn> Post<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest;
+        where TIn : IBaseRequest;
 
     /// <summary>
     /// Posts the specified data.
@@ -73,8 +73,8 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TOut&gt;.</returns>
     ValueTask<TOut> Post<TIn, TOut>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
-        where TOut : BaseResponse;
+        where TIn : IBaseRequest
+        where TOut : IBaseResponse;
 
     /// <summary>
     /// Puts the specified data.
@@ -84,7 +84,7 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TIn&gt;.</returns>
     ValueTask<TIn> Put<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest;
+        where TIn : IBaseRequest;
 
     /// <summary>
     /// Puts the specified data.
@@ -95,8 +95,8 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TOut&gt;.</returns>
     ValueTask<TOut> Put<TIn, TOut>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
-        where TOut : BaseResponse;
+        where TIn : IBaseRequest
+        where TOut : IBaseResponse;
 
     /// <summary>
     /// Patches the specified data.
@@ -106,7 +106,7 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TIn&gt;.</returns>
     ValueTask<TIn> Patch<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseResponse;
+        where TIn : IBaseResponse;
 
     /// <summary>
     /// Patches the specified data.
@@ -117,8 +117,8 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TOut&gt;.</returns>
     ValueTask<TOut> Patch<TIn, TOut>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest
-        where TOut : BaseResponse;
+        where TIn : IBaseRequest
+        where TOut : IBaseResponse;
 
     /// <summary>
     /// Deletes the specified data.
@@ -128,5 +128,5 @@ public interface IServiceFactory
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>ValueTask&lt;TIn&gt;.</returns>
     ValueTask<TIn> Delete<TIn>(TIn data, CancellationToken cancellationToken)
-        where TIn : BaseRequest;
+        where TIn : IBaseRequest;
 }

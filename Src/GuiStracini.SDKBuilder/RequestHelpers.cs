@@ -32,7 +32,7 @@ public static class RequestHelpers
     /// </summary>
     /// <param name="request">The request.</param>
     /// <returns>EndpointRouteAttribute.</returns>
-    public static EndpointRouteAttribute GetRequestEndPointAttribute(this BaseRequest request)
+    public static EndpointRouteAttribute GetRequestEndPointAttribute(this IBaseRequest request)
     {
         if (
             request.GetType().GetCustomAttributes(typeof(EndpointRouteAttribute), false)
@@ -53,7 +53,7 @@ public static class RequestHelpers
     /// <returns>String.</returns>
     /// <exception cref="GuiStracini.SDKBuilder.GoodPractices.RequestEndpointBadFormatException"></exception>
     /// <exception cref="GuiStracini.SDKBuilder.GoodPractices.InvalidRequestEndpointException"></exception>
-    public static string GetRequestEndPoint(this BaseRequest request)
+    public static string GetRequestEndPoint(this IBaseRequest request)
     {
         var type = request.GetType();
         var endpointAttribute = request.GetRequestEndPointAttribute();
@@ -154,7 +154,7 @@ public static class RequestHelpers
     /// <param name="requestMethod">The request method.</param>
     /// <returns>String.</returns>
     public static string GetRequestAdditionalParameter(
-        this BaseRequest request,
+        this IBaseRequest request,
         ActionMethod requestMethod
     )
     {

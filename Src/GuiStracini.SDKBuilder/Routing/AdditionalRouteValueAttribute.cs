@@ -20,7 +20,7 @@ using System;
 /// E.g. A GET/PUT request should include the field "Name" of a entity in the URL, so add this attribute to the Name property in the transport class, and set the ActionMethod to GET and PUT (2 attributes)
 /// </summary>
 /// <example>
-/// Using a generic transport class, inherited from <see cref="BaseRequest" /><code>
+/// Using a generic transport class, inherited from <see cref="IBaseRequest" /><code>
 /// [RouteEndpoint("/Sample/{id}")] //The id property is used in all requests if it's populated
 /// public class SampleTransport :BaseRequest
 /// {
