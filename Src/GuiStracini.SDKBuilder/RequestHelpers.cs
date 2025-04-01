@@ -166,6 +166,7 @@ namespace GuiStracini.SDKBuilder
             }
 
             var builder = new StringBuilder();
+            var isFirstQueryString = true;
             foreach (var property in properties)
             {
                 if (
@@ -209,9 +210,12 @@ namespace GuiStracini.SDKBuilder
                     || (property.PropertyType == typeof(long) && Convert.ToInt64(propertyValue) > 0)
                 )
                 {
+                    var initial = isFirstQueryString && addAsQueryString ? "/" : "";
+                    var separator = isFirstQueryString ? "?" : "&";
+                    var component = addAsQueryString ? $"{propertyName}=" : string.Empty;
+                    isFirstQueryString = false;
                     builder
-                        .Append("/")
-                        .AppendFormat("{0}", addAsQueryString ? $"?{propertyName}=" : string.Empty)
+                        .AppendFormat("{0}{1}{2}", initial, separator, component)
                         .Append(propertyValue);
                 }
             }
