@@ -122,18 +122,12 @@ public static class RequestHelpers
             if (property.PropertyType.IsEnum)
             {
                 var field = property.PropertyType.GetField(value);
-                if (
+                value =
                     field?.GetCustomAttributes(typeof(EnumRouteValueAttribute), false)
                         is EnumRouteValueAttribute[] enumRouteValue
                     && enumRouteValue.Any()
-                )
-                {
-                    value = enumRouteValue.Single().RouteValue;
-                }
-                else
-                {
-                    value = value.ToLowerInvariant();
-                }
+                        ? enumRouteValue.Single().RouteValue
+                        : value.ToLowerInvariant();
             }
 
             endpoint = endpoint.Replace(match.Groups["pattern"].Value, value);
