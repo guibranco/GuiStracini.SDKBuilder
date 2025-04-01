@@ -53,9 +53,18 @@ public class RequestHelpersTests
     [Fact]
     public void RequestParametersWithAdditionalAsQueryString()
     {
-        const string expected = "something?Test=TestValue";
+        const string expected = "/?Test=TestValue";
         var dummy = new DummyWithAdditionalAsQueryStringRequest { Test = "TestValue" };
-        var actual = dummy.GetRequestEndPoint();
+        var actual = dummy.GetRequestAdditionalParameter(ActionMethod.GET);
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void RequestParametersWithAdditionalAsQueryStringDifferentMethod()
+    {
+        const string expected = "";
+        var dummy = new DummyWithAdditionalAsQueryStringRequest { Test = "TestValue" };
+        var actual = dummy.GetRequestAdditionalParameter(ActionMethod.HEAD);
         Assert.Equal(expected, actual);
     }
 }
