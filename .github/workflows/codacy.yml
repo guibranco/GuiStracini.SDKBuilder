@@ -58,19 +58,29 @@ jobs:
       # same tool/category in one upload (see
       # https://github.blog/changelog/2025-07-21-code-scanning-will-stop-combining-multiple-sarif-runs-uploaded-in-the-same-sarif-file/).
       # The Codacy CLI emits one run per analysed tool execution, so merge runs
-      # that belong to the same tool into a single run before uploading.
+      # that share the same tool *and* category into a single run before
+      # uploading. Runs with distinct categories are kept apart. Results that
+      # reference their rule only by index are given the rule id first, since
+      # indexes are not stable once rule lists are merged.
       - name: Merge duplicate SARIF runs
         run: |
           jq '
             .runs = (
               .runs
-              | group_by(.tool.driver.name)
+              | group_by([.tool.driver.name, (.automationDetails.id // "")])
               | map(
                   . as $group
                   | $group[0]
                   | .tool.driver.rules = ([$group[].tool.driver.rules[]?] | unique_by(.id))
-                  | .results = ([$group[].results[]?] | map(del(.ruleIndex)))
-                  | del(.automationDetails)
+                  | .results = ([
+                      $group[]
+                      | . as $run
+                      | .results[]?
+                      | if (.ruleId == null and .ruleIndex != null)
+                        then .ruleId = $run.tool.driver.rules[.ruleIndex].id
+                        else . end
+                      | del(.ruleIndex)
+                    ])
                 )
             )
           ' results.sarif > results.merged.sarif
