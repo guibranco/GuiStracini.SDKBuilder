@@ -61,7 +61,9 @@ jobs:
       # that share the same tool *and* category into a single run before
       # uploading. Runs with distinct categories are kept apart. Results that
       # reference their rule only by index are given the rule id first, since
-      # indexes are not stable once rule lists are merged.
+      # indexes are not stable once rule lists are merged; likewise
+      # artifactLocation indexes (offsets into each run's own artifacts list)
+      # are dropped in favour of the uri, and the per-run artifacts list with them.
       - name: Merge duplicate SARIF runs
         run: |
           jq '
@@ -80,7 +82,10 @@ jobs:
                         then .ruleId = $run.tool.driver.rules[.ruleIndex].id
                         else . end
                       | del(.ruleIndex)
+                      | del(.locations[]?.physicalLocation.artifactLocation.index)
+                      | del(.relatedLocations[]?.physicalLocation.artifactLocation.index)
                     ])
+                  | del(.artifacts)
                 )
             )
           ' results.sarif > results.merged.sarif
