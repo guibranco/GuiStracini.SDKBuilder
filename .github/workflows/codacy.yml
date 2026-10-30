@@ -54,6 +54,29 @@ jobs:
           # This will handover control about PR rejection to the GitHub side
           max-allowed-issues: 2147483647
 
+      # GitHub code scanning no longer accepts multiple SARIF runs that share the
+      # same tool/category in one upload (see
+      # https://github.blog/changelog/2025-07-21-code-scanning-will-stop-combining-multiple-sarif-runs-uploaded-in-the-same-sarif-file/).
+      # The Codacy CLI emits one run per analysed tool execution, so merge runs
+      # that belong to the same tool into a single run before uploading.
+      - name: Merge duplicate SARIF runs
+        run: |
+          jq '
+            .runs = (
+              .runs
+              | group_by(.tool.driver.name)
+              | map(
+                  . as $group
+                  | $group[0]
+                  | .tool.driver.rules = ([$group[].tool.driver.rules[]?] | unique_by(.id))
+                  | .results = ([$group[].results[]?] | map(del(.ruleIndex)))
+                  | del(.automationDetails)
+                )
+            )
+          ' results.sarif > results.merged.sarif
+          mv results.merged.sarif results.sarif
+          jq -r ".runs | length | \"SARIF runs after merge: \\(.)\"" results.sarif
+
       # Upload the SARIF file generated in the previous step
       - name: Upload SARIF results file
         uses: github/codeql-action/upload-sarif@f205ea1c3313d32999d8d6a48b4f6530d4437b38 # v4
