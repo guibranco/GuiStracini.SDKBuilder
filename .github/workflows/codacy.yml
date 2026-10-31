@@ -54,6 +54,44 @@ jobs:
           # This will handover control about PR rejection to the GitHub side
           max-allowed-issues: 2147483647
 
+      # GitHub code scanning no longer accepts multiple SARIF runs that share the
+      # same tool/category in one upload (see
+      # https://github.blog/changelog/2025-07-21-code-scanning-will-stop-combining-multiple-sarif-runs-uploaded-in-the-same-sarif-file/).
+      # The Codacy CLI emits one run per analysed tool execution, so merge runs
+      # that share the same tool *and* category into a single run before
+      # uploading. Runs with distinct categories are kept apart. Results that
+      # reference their rule only by index are given the rule id first, since
+      # indexes are not stable once rule lists are merged; likewise
+      # artifactLocation indexes (offsets into each run's own artifacts list)
+      # are dropped in favour of the uri, and the per-run artifacts list with them.
+      - name: Merge duplicate SARIF runs
+        run: |
+          jq '
+            .runs = (
+              .runs
+              | group_by([.tool.driver.name, (.automationDetails.id // "")])
+              | map(
+                  . as $group
+                  | $group[0]
+                  | .tool.driver.rules = ([$group[].tool.driver.rules[]?] | unique_by(.id))
+                  | .results = ([
+                      $group[]
+                      | . as $run
+                      | .results[]?
+                      | if (.ruleId == null and .ruleIndex != null)
+                        then .ruleId = $run.tool.driver.rules[.ruleIndex].id
+                        else . end
+                      | del(.ruleIndex)
+                      | del(.locations[]?.physicalLocation.artifactLocation.index)
+                      | del(.relatedLocations[]?.physicalLocation.artifactLocation.index)
+                    ])
+                  | del(.artifacts)
+                )
+            )
+          ' results.sarif > results.merged.sarif
+          mv results.merged.sarif results.sarif
+          jq -r ".runs | length | \"SARIF runs after merge: \\(.)\"" results.sarif
+
       # Upload the SARIF file generated in the previous step
       - name: Upload SARIF results file
         uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4
